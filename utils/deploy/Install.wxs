@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+	<?define ProductName="{NAME}" ?>
+	<?define ProductVersion="{VERSION}" ?>
+	<?define ProductIcon="{INSTALL_ICON}" ?>
+	<?define Manufacturer="{COMPANY}" ?>
+	<?define License="{LICENSE}" ?>
+	<?define Executable="{TARGET}" ?>
+	<Product Name="$(var.ProductName)" Manufacturer="$(var.Manufacturer)"
+     		Id='*' 
+		UpgradeCode="$(var.UpgradeGuid)"
+        	Language='1033' Codepage='1252' Version="$(var.ProductVersion)">
+		<Package Id='*' 
+			Keywords='Installer' 
+			Description="$(var.ProductName) Installer"
+        		Manufacturer="$(var.Manufacturer)"
+        		InstallerVersion='100' 
+			Languages='1033' 
+			Compressed='yes' 
+			SummaryCodepage='1252' 
+		/>
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id='ProgramFilesFolder' Name='PFiles'>
+				<Directory Id="INSTALLLOCATION" Name="$(var.ProductName)"/>
+      			</Directory>
+	    	</Directory>
+
+		<Feature Id="ProductFeature" Title="$(var.ProductName)" Level="1">
+			<ComponentGroupRef Id="ProjectFiles"/>
+		</Feature>
+
+		<Icon Id="icon.ico" SourceFile="$(var.ProductIcon)"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+		<WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="$(var.License)"/>
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes"/>
+
+		<UI>
+			<UIRef Id="WixUI_InstallDir"/>
+                        <!--<Publish Dialog="ExitDialog" Control="Finish" Event="DoAc tion" Value="LaunchApplication">
+				WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed
+                        </Publish> -->
+		</UI>
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
+                <!--<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch $(var.ProductName)" />
+                <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+
+		<Property Id="WixShellExecTarget" Value="[INSTALLLOCATION]\$(var.Executable).exe" />
+                <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />-->
+
+	</Product>
+</Wix>
