@@ -9,11 +9,15 @@ uri = FKFramework.Net
 # Input
 SOURCES += \
     FKNet_plugin.cpp \
-    FKGate.cpp
+    FKMessageGate.cpp \
+    FKMessageChannel.cpp \
+    FKMessageHandler.cpp
 
 HEADERS += \
     FKNet_plugin.h \
-    FKGate.h
+    FKMessageGate.h \
+    FKMessageChannel.h \
+    FKMessageHandler.h
 
 INCLUDEPATH += ../../utils/headers
 

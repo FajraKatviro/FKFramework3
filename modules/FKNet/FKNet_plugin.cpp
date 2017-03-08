@@ -1,11 +1,16 @@
 #include "FKNet_plugin.h"
-#include "FKGate.h"
+
+#include "FKMessageGate.h"
+#include "FKMessageChannel.h"
+#include "FKMessageHandler.h"
 
 #include <qqml.h>
 
 void FKNetPlugin::registerTypes(const char *uri)
 {
     // @uri FKFramework.Net
-    qmlRegisterType<FKGate>(uri, 1, 0, "FKGate");
+    qmlRegisterType<FKMessageGate>(uri, 1, 0, "FKMessageGate");
+    qmlRegisterType<FKMessageChannel>(uri, 1, 0, "FKMessageChannel");
+    qmlRegisterType<FKMessageHandler>(uri, 1, 0, "FKMessageHandler");
 }
 
