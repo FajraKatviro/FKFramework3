@@ -11,13 +11,15 @@ SOURCES += \
     FKNet_plugin.cpp \
     FKMessageGate.cpp \
     FKMessageChannel.cpp \
-    FKMessageHandler.cpp
+    FKMessageHandler.cpp \
+    FKRoomSession.cpp
 
 HEADERS += \
     FKNet_plugin.h \
     FKMessageGate.h \
     FKMessageChannel.h \
-    FKMessageHandler.h
+    FKMessageHandler.h \
+    FKRoomSession.h
 
 INCLUDEPATH += ../../utils/headers
 
