@@ -34,6 +34,57 @@ void FKRoomSession::setAvaliableComponents(const QStringList componentNames){
     }
 }
 
+void FKRoomSession::requestSessionReplication(qint32 target){
+    QList<qint32> targets;
+    targets.append(target);
+    for(auto obj: _roomObjects){
+        obj->replicate(targets);
+    }
+    for(auto obj: _roomObjects){
+        obj->updateProperties(targets);
+    }
+}
+
+void FKRoomSession::requestReplicateEvent(qint32 object, qint32 componentIndex, QList<qint32> targets){
+    filterTargets(targets);
+    if(!targets.isEmpty()){
+        emit replicationEvent(object,componentIndex,targets);
+    }else{
+        FK_MLOGV("Replicate event skipped due empty target list", object)
+    }
+}
+
+void FKRoomSession::requestDeleteEvent(qint32 object, QList<qint32> targets){
+    filterTargets(targets);
+    if(!targets.isEmpty()){
+        emit deletionEvent(object,targets);
+    }else{
+        FK_MLOGV("Delete event skipped due empty target list", object)
+    }
+}
+
+void FKRoomSession::requestPropertyEvent(qint32 object, qint32 subject, QVariant value, QList<qint32> targets){
+    filterTargets(targets);
+    if(!targets.isEmpty()){
+        emit propertyEvent(object,subject,value,targets);
+    }else{
+        FK_MLOGV("Property event skipped due empty target list", object)
+    }
+}
+
+void FKRoomSession::requestCallableEvent(qint32 object, qint32 subject, QVariant value, QList<qint32> targets){
+    filterTargets(targets);
+    if(!targets.isEmpty()){
+        emit callableEvent(object,subject,value,targets);
+    }else{
+        FK_MLOGV("Callable event skipped due empty target list", object)
+    }
+}
+
+void FKRoomSession::processActionEvent(qint32 object, qint32 subject, QVariant value, qint32 requester){
+    emit actionEvent(object,subject,value,requester);
+}
+
 void FKRoomSession::loadAvaliableComponents(){
     unloadAvaliableComponents();
     resetRoomSessionContext();
@@ -84,6 +135,16 @@ void FKRoomSession::deleteRoomObject(const qint32 id){
 void FKRoomSession::discardRoomObject(const qint32 id){
     auto obj = _roomObjects.take(id);
     obj->deleteLater();
+}
+
+void FKRoomSession::filterTargets(QList<qint32>& targets){
+    QMutableListIterator i(targets);
+    while(i.hasNext()){
+        i.next();
+        if(!_roomSessions.value(i.value(),false)){
+            i.remove();
+        }
+    }
 }
 
 FKRoomObject* FKRoomSession::instantiateRoomObject(const QString componentName, const qint32 objectIndex){
