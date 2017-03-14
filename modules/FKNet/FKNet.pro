@@ -9,17 +9,19 @@ uri = FKFramework.Net
 # Input
 SOURCES += \
     FKNet_plugin.cpp \
-    FKMessageGate.cpp \
     FKMessageChannel.cpp \
     FKMessageHandler.cpp \
-    FKRoomSession.cpp
+    FKRoomSession.cpp \
+    FKMessageRedirect.cpp \
+    FKMessageGate.cpp
 
 HEADERS += \
     FKNet_plugin.h \
-    FKMessageGate.h \
     FKMessageChannel.h \
     FKMessageHandler.h \
-    FKRoomSession.h
+    FKRoomSession.h \
+    FKMessageRedirect.h \
+    FKMessageGate.h
 
 INCLUDEPATH += ../../utils/headers
 
