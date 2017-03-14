@@ -4,7 +4,7 @@
 
 #include "FKLogger.h"
 
-FKMessageChannel::FKMessageChannel(QObject* parent, qint32 channel) : QObject(parent),_channel(channel){
+FKMessageChannel::FKMessageChannel(QObject* parent) : QObject(parent){
     FK_CONSTRUCTOR
 }
 
@@ -15,27 +15,18 @@ FKMessageChannel::~FKMessageChannel(){
 void FKMessageChannel::processMessage(qint32 messageType, QJsonObject message){
     auto handler = _messageHandlers.value(messageType,_defaultHandler);
     if(handler){
-        handler->processMessage(message);
+        handler->processMessage(message,messageType);
+        if(!handler->consumeMessages()){
+            emitMessage(messageType,message);
+        }
     }else{
-        FK_MLOG("Unable process income message: message handler not found and default message handler is not set")
+        emitMessage(messageType,message);
     }
 }
 
 void FKMessageChannel::emitMessage(qint32 messageType, QJsonObject message){
     emit outcomeMessage(messageType,message);
 }
-
-qint32 FKMessageChannel::channel() const{
-    return _channel;
-}
-
-void FKMessageChannel::setChannel(const qint32 channel){
-    if(_channel != channel){
-        _channel = channel;
-        emit channelChanged();
-    }
-}
-
 
 QQmlListProperty<FKMessageHandler> FKMessageChannel::messageHandlers(){
     return QQmlListProperty<FKMessageHandler>(this,nullptr,

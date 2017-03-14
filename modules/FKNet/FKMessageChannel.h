@@ -11,14 +11,11 @@ class FKMessageChannel : public QObject{
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<FKMessageHandler> messageHandlers READ messageHandlers NOTIFY messageHandlersChanged)
     Q_PROPERTY(FKMessageHandler* defaultHandler READ defaultHandler WRITE setDefaultHandler NOTIFY defaultHandlerChanged)
-    Q_PROPERTY(qint32 channel READ channel WRITE setChannel NOTIFY channelChanged)
     Q_PROPERTY(QQmlListProperty<FKMessageChannel> incomeChannels READ incomeChannels NOTIFY incomeChannelsChanged)
     Q_CLASSINFO("DefaultProperty","messageHandlers")
 public:
-    explicit FKMessageChannel(QObject *parent = 0, qint32 channel = 0);
+    explicit FKMessageChannel(QObject *parent = 0);
     ~FKMessageChannel();
-
-    qint32 channel()const;
 
 public slots:
     void processMessage(qint32 messageType, QJsonObject message);
@@ -27,13 +24,9 @@ public slots:
 signals:
     void messageHandlersChanged();
     void defaultHandlerChanged();
-    void channelChanged();
     void incomeChannelsChanged();
 
     void outcomeMessage(qint32 messageType, QJsonObject message);
-
-protected:
-    void setChannel(const qint32 channel);
 
 private:
     QQmlListProperty<FKMessageHandler> messageHandlers();
@@ -54,7 +47,6 @@ private:
 
     QMap<qint32,FKMessageHandler*> _messageHandlers;
     FKMessageHandler* _defaultHandler = nullptr;
-    qint32 _channel = 0;
     QList<FKMessageChannel*> _incomeChannels;
 };
 

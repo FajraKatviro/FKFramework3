@@ -1,10 +1,8 @@
 #include "FKMessageGate.h"
 
-#include "FKMessageChannel.h"
-
 #include "FKLogger.h"
 
-FKMessageGate::FKMessageGate(QObject* parent):QObject(parent){
+FKMessageGate::FKMessageGate(QObject* parent):FKMessageHandler(parent){
     FK_CONSTRUCTOR
 }
 
@@ -12,79 +10,57 @@ FKMessageGate::~FKMessageGate(){
     FK_DESTRUCTOR
 }
 
-void FKMessageGate::processMessage(qint32 channel, qint32 messageType, QJsonObject message){
-    auto targetChannel = _channels.value(channel,nullptr);
-    if(targetChannel){
-        targetChannel->processMessage(messageType,message);
+void FKMessageGate::processMessage(const QJsonObject message, const qint32 messageType){
+    if(_mode == ListenToChannel){
+        processMessage(message);
     }else{
-        FK_MLOGV("Unable process message: channel not found", channel)
+        FK_MLOGV("Unexpected income message while listen to target",messageType)
     }
 }
 
-void FKMessageGate::emitMessage(qint32 channel, qint32 messageType, QJsonObject message){
-    auto targetChannel = _channels.value(channel,nullptr);
-    if(targetChannel){
-        targetChannel->emitMessage(messageType,message);
-    }else{
-        FK_MLOGV("Unable emit message: channel not found", channel)
-    }
+FKMessageGate::GateMode FKMessageGate::mode() const{
+    return _mode;
 }
 
-QQmlListProperty<FKMessageChannel> FKMessageGate::channels(){
-    return QQmlListProperty<FKMessageChannel>(this,nullptr,
-                                           &FKMessageGate::addChannel,
-                                           &FKMessageGate::countChannels,
-                                           &FKMessageGate::getChannel,
-                                           &FKMessageGate::clearChannels);
+QObject*FKMessageGate::target() const{
+    return _target;
 }
 
-void FKMessageGate::addChannel(QQmlListProperty<FKMessageChannel>* property, FKMessageChannel* value){
-    FKMessageGate* gate=qobject_cast<FKMessageGate*>(property->object);
-    if(gate && value){
-        if(gate->_channels.contains(value->channel())){
-            FK_MLOGV("Unable add already existed channel",value->channel())
-            return;
+void FKMessageGate::setMode(FKMessageGate::GateMode mode){
+    if(_mode != mode){
+        _mode = mode;
+        if(_target){
+            _mode == ListenToTarget ? connectTarget(_target) : disconnectTarget(_target);
         }
-        gate->_channels[value->channel()]=value;
-        //emit channelsChanged();
-    }else{
-        FK_MLOG("Unable add channel to gate: invalid pointer")
+        emit modeChanged();
     }
 }
 
-FKMessageChannel* FKMessageGate::getChannel(QQmlListProperty<FKMessageChannel>* property, int index){
-    FKMessageGate* gate=qobject_cast<FKMessageGate*>(property->object);
-    if(gate){
-        if(index<0 || gate->_channels.size() <= index){
-            FK_MLOGV("Invalid channel index",index)
-            return nullptr;
+void FKMessageGate::setTarget(QObject* target){
+    if(_target != target){
+        if(_mode == ListenToTarget){
+            if(_target){
+                disconnectTarget(_target);
+            }
+            _target = target;
+            if(target){
+                connectTarget(target);
+            }
+        }else{
+            _target = target;
         }
-        return (gate->_channels.constBegin() + index).value();
-    }else{
-        FK_MLOG("Unable get channel at gate: invalid gate pointer")
-        return nullptr;
+        emit targetChanged();
     }
 }
 
-void FKMessageGate::clearChannels(QQmlListProperty<FKMessageChannel>* property){
-    FKMessageGate* gate=qobject_cast<FKMessageGate*>(property->object);
-    if(gate){
-        gate->_channels.clear();
-        //emit channelsChanged();
-    }else{
-        FK_MLOG("Unable clear channels at gate: invalid gate pointer")
-    }
+void FKMessageGate::processMessage(QJsonObject message){
+    Q_UNUSED(message)
 }
 
-int FKMessageGate::countChannels(QQmlListProperty<FKMessageChannel>* property){
-    FKMessageGate* gate=qobject_cast<FKMessageGate*>(property->object);
-    if(gate){
-        return gate->_channels.count();
-    }else{
-        FK_MLOG("Unable count channels at gate: invalid gate pointer")
-        return 0;
-    }
+void FKMessageGate::connectTarget(QObject* target){
+    Q_UNUSED(target)
 }
 
-
-
+void FKMessageGate::disconnectTarget(QObject* target){
+    Q_UNUSED(target)
+}

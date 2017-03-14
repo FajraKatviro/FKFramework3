@@ -1,34 +1,41 @@
-#pragma once
+#ifndef FKMESSAGEGATE_H
+#define FKMESSAGEGATE_H
 
-#include <QObject>
+#include "FKMessageHandler.h"
 
-#include <QQmlListProperty>
-#include <QJsonObject>
-
-class FKMessageChannel;
-
-class FKMessageGate : public QObject{
+class FKMessageGate : public FKMessageHandler{
     Q_OBJECT
-    Q_PROPERTY(QQmlListProperty<FKMessageChannel> channels READ channels NOTIFY channelsChanged)
-    Q_CLASSINFO("DefaultProperty","channels")
+    Q_PROPERTY(GateMode mode READ mode WRITE setMode NOTIFY modeChanged)
+    Q_PROPERTY(QObject* target READ target WRITE setTarget NOTIFY targetChanged)
 public:
-    FKMessageGate(QObject *parent = 0);
+    FKMessageGate(QObject* parent = nullptr);
     ~FKMessageGate();
 
-protected:
-    void processMessage(qint32 channel, qint32 messageType, QJsonObject message);
-    void emitMessage(qint32 channel, qint32 messageType, QJsonObject message);
+    enum GateMode{
+        ListenToChannel,
+        ListenToTarget
+    };
+    Q_ENUM(GateMode)
+
+    virtual void processMessage(const QJsonObject message, const qint32 messageType)final;
+
+    GateMode mode()const;
+    QObject* target()const;
+
+    void setMode(GateMode mode);
+    void setTarget(QObject* target);
 
 signals:
-    void channelsChanged();
+    void modeChanged();
+    void targetChanged();
 
 private:
-    QQmlListProperty<FKMessageChannel> channels();
+    virtual void processMessage(QJsonObject message);
+    virtual void connectTarget(QObject* target);
+    virtual void disconnectTarget(QObject* target);
 
-    static void addChannel(QQmlListProperty<FKMessageChannel>* property, FKMessageChannel* value);
-    static FKMessageChannel* getChannel(QQmlListProperty<FKMessageChannel>* property, int index);
-    static void clearChannels(QQmlListProperty<FKMessageChannel>* property);
-    static int countChannels(QQmlListProperty<FKMessageChannel>* property);
-
-    QMap<qint32,FKMessageChannel*> _channels;
+    GateMode _mode = ListenToChannel;
+    QObject* _target = nullptr;
 };
+
+#endif // FKMESSAGEGATE_H
