@@ -3,6 +3,8 @@
 #include <QQmlComponent>
 #include <QQmlEngine>
 
+#include "FKRoomObject.h"
+
 #include "FKLogger.h"
 
 FKRoomSession::FKRoomSession(QObject *parent) : QObject(parent){
@@ -32,6 +34,26 @@ void FKRoomSession::setAvaliableComponents(const QStringList componentNames){
         setAvaliableComponentsLoaded(false);
         emit avaliableComponentsChanged();
     }
+}
+
+void FKRoomSession::processReplicateEvent(qint32 object, qint32 componentIndex){
+    todo;
+}
+
+void FKRoomSession::processDeleteEvent(qint32 object){
+    todo;
+}
+
+void FKRoomSession::processPropertyEvent(qint32 object, qint32 subject, QVariant value){
+    todo;
+}
+
+void FKRoomSession::processCallableEvent(qint32 object, qint32 subject, QVariant value){
+    todo;
+}
+
+void FKRoomSession::requestActionEvent(qint32 object, qint32 subject, QVariant value){
+    todo;
 }
 
 void FKRoomSession::requestSessionReplication(qint32 target){
@@ -83,6 +105,14 @@ void FKRoomSession::requestCallableEvent(qint32 object, qint32 subject, QVariant
 
 void FKRoomSession::processActionEvent(qint32 object, qint32 subject, QVariant value, qint32 requester){
     emit actionEvent(object,subject,value,requester);
+}
+
+void FKRoomSession::sessionGreeting(const qint32 session){
+    todo;
+}
+
+void FKRoomSession::sessionLost(const qint32 session){
+    todo;
 }
 
 void FKRoomSession::loadAvaliableComponents(){

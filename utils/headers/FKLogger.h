@@ -28,10 +28,10 @@ class FKLogger{
     FKLogger(){}
 #ifndef FK_NO_CONSTRUCTORS
     QMap<QString,int> objects;
-    QMutex mutex;
+    mutable QMutex mutex;
 public:
     void printObjectCounts()const{
-        QMutexLocker locker(mutex);
+        QMutexLocker locker(&mutex);
         Q_UNUSED(locker)
         for(auto i = objects.constBegin(); i != objects.constEnd(); ++i){
             qDebug()<<"Existing objects:";
@@ -39,7 +39,7 @@ public:
         }
     }
     void changeObjectCount(const QString& message, const QString& name,const int i){
-        QMutexLocker locker(mutex);
+        QMutexLocker locker(&mutex);
         Q_UNUSED(locker)
         Q_UNUSED(message)
         int& val = objects[name];
@@ -83,8 +83,8 @@ public:
 
 #endif
 
-#define FK_MLOGV(description, value) FKLogger::writeLog(__FILE__,__LINE__,QString(description), value);
-#define FK_MLOG(description) FKLogger::writeLog(__FILE__,__LINE__,QString(description), QVariant());
+#define FK_MLOGV(description, value) FKLogger::instance().writeLog(__FILE__,__LINE__,QString(description), value);
+#define FK_MLOG(description) FKLogger::instance().writeLog(__FILE__,__LINE__,QString(description), QVariant());
 
 #ifndef FK_NO_TODO
 #define todo qDebug("Incomplete code reached: %d line, %s",__LINE__,__FILE__)

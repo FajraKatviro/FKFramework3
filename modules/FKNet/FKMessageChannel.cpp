@@ -117,7 +117,7 @@ void FKMessageChannel::addIncomeChannel(QQmlListProperty<FKMessageChannel>* prop
     FKMessageChannel* channel=qobject_cast<FKMessageChannel*>(property->object);
     if(channel && value){
         if(channel->_incomeChannels.contains(value)){
-            FK_MLOGV("Unable add income channel multiple times",value->channel())
+            FK_MLOG("Unable add income channel multiple times")
             return;
         }
         channel->_incomeChannels.append(value);
