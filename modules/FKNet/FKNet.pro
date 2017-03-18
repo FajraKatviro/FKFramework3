@@ -6,6 +6,8 @@ CONFIG += plugin c++11
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = FKFramework.Net
 
+DEFINES += FK_DEBUG
+
 # Input
 SOURCES += \
     FKNet_plugin.cpp \
@@ -13,7 +15,13 @@ SOURCES += \
     FKMessageHandler.cpp \
     FKRoomSession.cpp \
     FKMessageRedirect.cpp \
-    FKMessageGate.cpp
+    FKMessageGate.cpp \
+    FKRoomObject.cpp \
+    FKAccessGroup.cpp \
+    FKRoomObjectComponent.cpp \
+    FKRoomEvent.cpp \
+    FKRoomAction.cpp \
+    FKRoomProperty.cpp
 
 HEADERS += \
     FKNet_plugin.h \
@@ -21,7 +29,13 @@ HEADERS += \
     FKMessageHandler.h \
     FKRoomSession.h \
     FKMessageRedirect.h \
-    FKMessageGate.h
+    FKMessageGate.h \
+    FKRoomObject.h \
+    FKAccessGroup.h \
+    FKRoomObjectComponent.h \
+    FKRoomEvent.h \
+    FKRoomAction.h \
+    FKRoomProperty.h
 
 INCLUDEPATH += ../../utils/headers
 

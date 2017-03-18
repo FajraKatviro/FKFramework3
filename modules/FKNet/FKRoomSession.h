@@ -28,15 +28,12 @@ public:
 
     void setAvaliableComponents(const QStringList componentNames);
 
-    void enableSession(const qint32 session);
-    void disableSession(const qint32 session);
-
     //client-side
-    //void processReplicateEvent(qint32 object, qint32 componentIndex);
-    //void processDeleteEvent   (qint32 object);
-    //void processPropertyEvent (qint32 object, qint32 subject, QVariant value);
-    //void processCallableEvent (qint32 object, qint32 subject, QVariant value);
-    //void requestActionEvent   (qint32 object, qint32 subject, QVariant value);
+    void processReplicateEvent(qint32 object, qint32 componentIndex);
+    void processDeleteEvent   (qint32 object);
+    void processPropertyEvent (qint32 object, qint32 subject, QVariant value);
+    void processCallableEvent (qint32 object, qint32 subject, QVariant value);
+    void requestActionEvent   (qint32 object, qint32 subject, QVariant value);
 
     //server-side
     void requestReplicateEvent(qint32 object, qint32 componentIndex,          QList<qint32> targets);
@@ -44,6 +41,9 @@ public:
     void requestPropertyEvent (qint32 object, qint32 subject, QVariant value, QList<qint32> targets);
     void requestCallableEvent (qint32 object, qint32 subject, QVariant value, QList<qint32> targets);
     void processActionEvent   (qint32 object, qint32 subject, QVariant value, qint32 requester);
+
+    void sessionGreeting(const qint32 session);
+    void sessionLost(const qint32 session);
 
 public slots:
     void loadAvaliableComponents();
