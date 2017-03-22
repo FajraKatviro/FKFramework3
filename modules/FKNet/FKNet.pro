@@ -21,7 +21,10 @@ SOURCES += \
     room/FKRoomObjectComponent.cpp \
     room/FKRoomEvent.cpp \
     room/FKRoomAction.cpp \
-    room/FKRoomProperty.cpp
+    room/FKRoomProperty.cpp \
+    service/FKNetSession.cpp \
+    service/FKNetService.cpp \
+    service/FKConnection.cpp
 
 HEADERS += \
     FKNet_plugin.h \
@@ -35,7 +38,10 @@ HEADERS += \
     room/FKRoomObjectComponent.h \
     room/FKRoomEvent.h \
     room/FKRoomAction.h \
-    room/FKRoomProperty.h
+    room/FKRoomProperty.h \
+    service/FKNetSession.h \
+    service/FKNetService.h \
+    service/FKConnection.h
 
 INCLUDEPATH += ../../utils/headers
 
