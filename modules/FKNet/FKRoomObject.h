@@ -5,6 +5,7 @@
 
 #include <QSet>
 
+class FKRoomSession;
 class FKRoomEvent;
 class FKRoomAction;
 class FKRoomProperty;
@@ -15,6 +16,8 @@ public:
     explicit FKRoomObject(QObject *parent = 0);
     ~FKRoomObject();
 
+    void discard();
+
     void addRoomEvent(FKRoomEvent* ev);
     void addRoomAction(FKRoomAction* ac);
     void addRoomProperty(FKRoomProperty* prop);
@@ -23,12 +26,20 @@ public:
     void removeRoomAction(FKRoomAction* ac);
     void removeRoomProperty(FKRoomProperty* prop);
 
-    void replicate(const QSet<qint32>& watchers)const;
+    virtual void replicate(const QSet<qint32>& watchers)const;
+    void applyProperties(const QSet<qint32>& watchers)const;
+
+    void setComponentIndex(const int index);
+    void setSession(FKRoomSession* session, const qint32 id, const bool selfManaged = false);
 
 private:
     QList<FKRoomEvent*> _roomEvents;
     QList<FKRoomAction*> _roomActions;
     QList<FKRoomProperty*> _roomProperties;
+    FKRoomSession* _session;
+    int _componentIndex = -1;
+    qint32 _id = -1;
+    bool _selfManaged = false;
 };
 
 #endif // FKROOMOBJECT_H

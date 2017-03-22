@@ -14,7 +14,7 @@ QSet<qint32> FKAccessGroup::access() const{
     return _access;
 }
 
-void FKAccessGroup::setAcceess(const QSet& access){
+void FKAccessGroup::setAcceess(const QSet<qint32>& access){
     if (access != _access) {
         _access = access;
         invalidateCache();
@@ -79,7 +79,7 @@ int FKAccessGroup::countAccessGroups(QQmlListProperty<FKAccessGroup>* property){
         return object->countAccessGroups();
     }else{
         FK_MLOG("Unable count access group qml property: no object")
-        return nullptr;
+        return 0;
     }
 }
 
@@ -89,7 +89,6 @@ void FKAccessGroup::addAccessGroup(QQmlListProperty<FKAccessGroup>* property, FK
         object->addAccessGroup(group);
     }else{
         FK_MLOG("Unable add access group qml property: no object")
-        return nullptr;
     }
 }
 
@@ -99,7 +98,6 @@ void FKAccessGroup::resetAccessGroups(QQmlListProperty<FKAccessGroup>* property)
         object->resetAccessGroups();
     }else{
         FK_MLOG("Unable reset access group qml property: no object")
-        return nullptr;
     }
 }
 

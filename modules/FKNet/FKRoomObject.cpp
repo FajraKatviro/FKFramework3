@@ -1,12 +1,13 @@
 #include "FKRoomObject.h"
 
+#include "FKRoomSession.h"
 #include "FKRoomEvent.h"
 #include "FKRoomAction.h"
 #include "FKRoomProperty.h"
 
 #include "FKLogger.h"
 
-FKRoomObject::FKRoomObject(QObject *parent) : QObject(parent){
+FKRoomObject::FKRoomObject(QObject *parent) : FKAccessGroup(parent){
     FK_CONSTRUCTOR
 }
 
@@ -46,4 +47,20 @@ void FKRoomObject::removeRoomProperty(FKRoomProperty* prop){
 
 void FKRoomObject::replicate(const QSet<qint32>& watchers) const{
     todo;
+}
+
+void FKRoomObject::applyProperties(const QSet<qint32>& watchers) const{
+    todo;
+}
+
+
+
+void FKRoomObject::setComponentIndex(const int index){
+    _componentIndex = index;
+}
+
+void FKRoomObject::setSession(FKRoomSession* session, const qint32 id, const bool selfManaged){
+    _session = session;
+    _id = id;
+    _selfManaged = selfManaged;
 }

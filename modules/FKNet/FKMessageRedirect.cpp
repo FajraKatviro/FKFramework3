@@ -16,14 +16,14 @@ FKMessageChannel* FKMessageRedirect::targetChannel() const{
     return _targetChannel;
 }
 
-void FKMessageRedirect::setTargetChannel(const FKMessageChannel* arg){
+void FKMessageRedirect::setTargetChannel(FKMessageChannel* arg){
     if(_targetChannel != arg){
         _targetChannel = arg;
         emit targetChannelChanged();
     }
 }
 
-void FKMessageRedirect::processMessage(const QJsonObject message, const qint32 messageType){
+void FKMessageRedirect::processMessage(QJsonObject message, const qint32 messageType){
     if(_targetChannel){
         _targetChannel->processMessage(messageType,message);
     }else{

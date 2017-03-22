@@ -16,7 +16,7 @@ void FKMessageHandler::setChannel(FKMessageChannel* channel){
     }
 }
 
-void FKMessageHandler::processMessage(const QJsonObject message, const qint32 messageType){
+void FKMessageHandler::processMessage(QJsonObject message, const qint32 messageType){
     emit this->message(message, messageType);
 }
 

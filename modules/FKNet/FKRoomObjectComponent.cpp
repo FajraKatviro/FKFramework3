@@ -45,6 +45,7 @@ int FKRoomObjectComponent::countRoomObjectComponentChildren(QQmlListProperty<QOb
         return object->_roomObjectChildren.count();
     }else{
         FK_MLOG("Unable count room object component children qml property: no object")
+        return 0;
     }
 }
 
@@ -54,6 +55,7 @@ QObject* FKRoomObjectComponent::getRoomObjectComponentChild(QQmlListProperty<QOb
         return object->_roomObjectChildren.at(index);
     }else{
         FK_MLOG("Unable get room object component children qml property: no object")
+        return nullptr;
     }
 }
 

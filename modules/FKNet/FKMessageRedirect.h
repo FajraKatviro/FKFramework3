@@ -11,9 +11,9 @@ public:
     ~FKMessageRedirect();
 
     FKMessageChannel* targetChannel()const;
-    void setTargetChannel(const FKMessageChannel* arg);
+    void setTargetChannel(FKMessageChannel* arg);
 
-    virtual void processMessage(const QJsonObject message, const qint32 messageType)override;
+    virtual void processMessage(QJsonObject message, const qint32 messageType)override;
 
 signals:
     void targetChannelChanged();

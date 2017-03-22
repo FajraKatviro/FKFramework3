@@ -57,13 +57,13 @@ void FKRoomSession::requestActionEvent(qint32 object, qint32 subject, QVariant v
 }
 
 void FKRoomSession::requestSessionReplication(qint32 target){
-    QList<qint32> targets;
-    targets.append(target);
+    QSet<qint32> targets;
+    targets.insert(target);
     for(auto obj: _roomObjects){
         obj->replicate(targets);
     }
     for(auto obj: _roomObjects){
-        obj->updateProperties(targets);
+        obj->applyProperties(targets);
     }
 }
 
@@ -144,7 +144,7 @@ void FKRoomSession::unloadAvaliableComponents(){
 QObject* FKRoomSession::createRoomObject(const QString componentName){
     FKRoomObject* object = instantiateRoomObject(componentName,_nextObjectIndex++);
     if(object){
-        object->replicate(object->watchers());
+        object->replicate(object->totalAccess());
     }
     return object;
 }
@@ -157,7 +157,7 @@ QObject* FKRoomSession::createRoomObject(const qint32 componentIndex, const qint
 void FKRoomSession::deleteRoomObject(const qint32 id){
     auto obj = _roomObjects.value(id, nullptr);
     if(obj){
-        requestDeleteEvent(id, obj->watchers());
+        requestDeleteEvent(id, obj->totalAccess().toList());
         obj->deleteLater();
     }
 }
@@ -168,7 +168,7 @@ void FKRoomSession::discardRoomObject(const qint32 id){
 }
 
 void FKRoomSession::filterTargets(QList<qint32>& targets){
-    QMutableListIterator i(targets);
+    QMutableListIterator<qint32> i(targets);
     while(i.hasNext()){
         i.next();
         if(!_roomSessions.value(i.value(),false)){
@@ -214,7 +214,11 @@ void FKRoomSession::onComponentObjectLoaded(){
     }
     for(auto i:_componentObjects){
         if(i->isError()){
-            FK_MLOGV("Room components loaded with errors",i->errors())
+            QStringList errors;
+            for(auto e:i->errors()){
+                errors.append(e.toString());
+            }
+            FK_MLOGV("Room components loaded with errors",errors)
         }
     }
     setAvaliableComponentsLoaded(true);
