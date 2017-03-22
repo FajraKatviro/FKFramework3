@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+#include <QSet>
 #include <QQmlListProperty>
 
 class FKAccessGroup : public QObject{
@@ -15,7 +16,7 @@ public:
     ~FKAccessGroup();
 
     QSet<qint32> access()const;
-    void setAcceess(const QSet& access);
+    void setAcceess(const QSet<qint32>& access);
 
     QSet<qint32> totalAccess()const;
 

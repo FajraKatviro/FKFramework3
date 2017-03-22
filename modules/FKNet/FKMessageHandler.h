@@ -14,7 +14,7 @@ public:
     ~FKMessageHandler();
 
     void setChannel(FKMessageChannel* channel);
-    virtual void processMessage(const QJsonObject message, const qint32 messageType);
+    virtual void processMessage(QJsonObject message, const qint32 messageType);
 
     qint32 messageType()const;
     void setMessageType(const qint32 messageType);
