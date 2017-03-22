@@ -8,7 +8,7 @@
 class FKRoomObjectComponent : public FKAccessGroup{
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<QObject> children READ roomObjectComponentChildren NOTIFY childrenChanged)
-    Q_CLASSINFO("DefaultProperty","accessGroups")
+    Q_CLASSINFO("DefaultProperty","children")
 
 public:
     explicit FKRoomObjectComponent(QObject* parent = nullptr);
