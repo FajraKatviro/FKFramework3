@@ -11,31 +11,31 @@ DEFINES += FK_DEBUG
 # Input
 SOURCES += \
     FKNet_plugin.cpp \
-    FKMessageChannel.cpp \
-    FKMessageHandler.cpp \
-    FKRoomSession.cpp \
-    FKMessageRedirect.cpp \
-    FKMessageGate.cpp \
-    FKRoomObject.cpp \
-    FKAccessGroup.cpp \
-    FKRoomObjectComponent.cpp \
-    FKRoomEvent.cpp \
-    FKRoomAction.cpp \
-    FKRoomProperty.cpp
+    channel/FKMessageChannel.cpp \
+    channel/FKMessageHandler.cpp \
+    channel/FKMessageRedirect.cpp \
+    channel/FKMessageGate.cpp \
+    room/FKRoomSession.cpp \
+    room/FKRoomObject.cpp \
+    room/FKAccessGroup.cpp \
+    room/FKRoomObjectComponent.cpp \
+    room/FKRoomEvent.cpp \
+    room/FKRoomAction.cpp \
+    room/FKRoomProperty.cpp
 
 HEADERS += \
     FKNet_plugin.h \
-    FKMessageChannel.h \
-    FKMessageHandler.h \
-    FKRoomSession.h \
-    FKMessageRedirect.h \
-    FKMessageGate.h \
-    FKRoomObject.h \
-    FKAccessGroup.h \
-    FKRoomObjectComponent.h \
-    FKRoomEvent.h \
-    FKRoomAction.h \
-    FKRoomProperty.h
+    channel/FKMessageChannel.h \
+    channel/FKMessageHandler.h \
+    channel/FKMessageRedirect.h \
+    channel/FKMessageGate.h \
+    room/FKRoomSession.h \
+    room/FKRoomObject.h \
+    room/FKAccessGroup.h \
+    room/FKRoomObjectComponent.h \
+    room/FKRoomEvent.h \
+    room/FKRoomAction.h \
+    room/FKRoomProperty.h
 
 INCLUDEPATH += ../../utils/headers
 
