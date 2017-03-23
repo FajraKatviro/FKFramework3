@@ -6,7 +6,9 @@ CONFIG += plugin c++11
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = FKFramework.Net
 
-DEFINES += FK_DEBUG
+DEFINES += \
+    FK_NET_LIBRARY \
+    FK_DEBUG
 
 # Input
 SOURCES += \
@@ -27,6 +29,7 @@ SOURCES += \
     service/FKConnection.cpp
 
 HEADERS += \
+    FKNet_global.h \
     FKNet_plugin.h \
     channel/FKMessageChannel.h \
     channel/FKMessageHandler.h \
