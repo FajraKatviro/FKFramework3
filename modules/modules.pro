@@ -1,3 +1,4 @@
 TEMPLATE = subdirs
 
-SUBDIRS += FKNet
+SUBDIRS += FKNet \
+    FKNet/Protocol

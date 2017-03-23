@@ -3,7 +3,9 @@
 
 #include <QObject>
 
-class FKConnection : public QObject{
+#include "FKNet_global.h"
+
+class FK_NET_EXPORT FKConnection : public QObject{
     Q_OBJECT
 public:
     explicit FKConnection(QObject* parent = 0);
