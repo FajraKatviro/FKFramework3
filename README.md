@@ -1,4 +1,4 @@
-# FKFramework3
+﻿# FKFramework3
 
 Проект представляет собой набор средств для создания мультиплеерных игр на основе QML и Qt3D
 
@@ -17,3 +17,20 @@
 |7|FKClient|module|Pending|components
 |8|FKLudo|module|Pending|components
 |9|FKSamples|apps|Pending|samples
+
+
+Building:
+
+  1. Clone repository with --recursive option
+  2. Configure root project (FKFramework.pro) with QtCreator
+    1. Add 'make install' step after 'make' step
+    2. **(windows only)** add 'make deploy' step after 'make install' step
+  3. Build
+
+Framework binaries and source components are placed to default installation folder ($HOME/Applications/FKFramework for mac, $HOME/FKFramework for other unix, %HOMEPATH%\AppData\Roaming\FKFramework for windows)
+
+
+Integration:
+
+  1. Add to you project submodule https://github.com/FajraKatviro/FKDefaultPaths.git
+  2. Include 'fkframework.pri' file from submodule to the end of your project file
