@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 
 SUBDIRS = \ #modules \
           \ #tools \
-          \ #utils \
+          utils \
           helpers #\
           #samples_src
 

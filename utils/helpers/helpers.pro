@@ -1,7 +1,7 @@
 
 TEMPLATE = aux
 
-include(../paths/fkframeworkpath.pri)
+include(../../paths/fkframeworkpath.pri)
 
 headers.files = commonPaths.h \
                 loadImageset.h \
@@ -10,9 +10,12 @@ headers.files = commonPaths.h \
                 selectBestSizeset.h \
                 sizeString.h
 
-headers.path = $$FK_FRAMEWORK_PATH/helpers
+headers.path = $$FK_UTILS_FOLDER/helpers
 
-!isEmpty(FK_FRAMEWORK_PATH){
-    INSTALLS += headers
+utils.files = fkhelpers.pri
+utils.path = $$FK_UTILS_FOLDER
+
+!isEmpty(FK_UTILS_FOLDER){
+    INSTALLS += headers utils
 }
 
