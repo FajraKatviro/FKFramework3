@@ -6,17 +6,17 @@
 
 Схема разработки проекта:
 
-| № п\п |Подпроект|Статус|Секция|
-|---|---|---|---|
-|1|FKNetwork|In progress|modules
-|2|FKUpdate|Pending|modules
-|3|FKBootstrapper|Pending|tools
-|4|FKTools|In progress|tools
-|5|FKUtils|In progress|utils
-|6|FKServer|Pending|modules
-|7|FKClient|Pending|modules
-|8|FKLudo|Pending|modules
-|9|FKSamples|Pending|samples
+| № п\п |Подпроект|Статус|Секция|Описание|
+|---|---|---|---|---|
+|1|FKNetwork|In progress|modules|Базовые компоненты для сетевого взаимодействия|
+|2|FKUpdate|Pending|modules|Компоненты для проверки наличия, скачивания и применения обновлений|
+|3|FKBootstrapper|Pending|tools|Готовый клиент для загрузки приложений через модуль обновления|
+|4|FKTools|In progress|tools|Набор вспомогательных инструментов для разработки|
+|5|FKUtils|Testing|utils|Набор вспомогательных инструментов для интеграции в проект|
+|6|FKServer|Pending|modules|Конфигурация сетевых компонентов для создания сервера|
+|7|FKClient|Pending|modules|Конфигурация сетевых компонентов для создания клиента|
+|8|FKLudo|Pending|modules|Конфигурация сетевых компонентов для создания многопользовательской игры|
+|9|FKSamples|Pending|samples|Примеры использования модулей|
 
 
 Building:
@@ -46,7 +46,7 @@ This section is a separate git repository. The repository contains *.pri* files 
 - FK_UTILS_FOLDER - Utils section directory
 
 Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use utils section
-If you want override used FKFramework3 location, you should set variable before include command. So, there is the best place for include command in the end of project file.
+If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PATH variable before include command. So, there is the best place for include command at the end of project file.
 
 **Tools section**
 
