@@ -6,17 +6,17 @@
 
 Схема разработки проекта:
 
-| № п\п |Подпроект|Тип|Статус|Раздел|
-|---|---|---|---|---|
-|1|FKNetwork|module|In progress|components
-|2|FKUpdate|module|Pending|components
-|3|FKBootstrapper|module|Pending|utils
-|4|FKTools|apps|Pending migration|tools
-|5|FKUtils|sources|Pending migration|utils
-|6|FKServer|module|Pending|components
-|7|FKClient|module|Pending|components
-|8|FKLudo|module|Pending|components
-|9|FKSamples|apps|Pending|samples
+| № п\п |Подпроект|Статус|Секция|
+|---|---|---|---|
+|1|FKNetwork|In progress|modules
+|2|FKUpdate|Pending|modules
+|3|FKBootstrapper|Pending|tools
+|4|FKTools|In progress|tools
+|5|FKUtils|In progress|utils
+|6|FKServer|Pending|modules
+|7|FKClient|Pending|modules
+|8|FKLudo|Pending|modules
+|9|FKSamples|Pending|samples
 
 
 Building:
@@ -36,32 +36,36 @@ Integration:
   2. Include 'fkframework.pri' file from submodule to the end of your project file
   3. Enable required features (see utils section)
 
-Full description:
+**Full description:**
 
-Paths section
-This section is a separate git repository. The repository contains *.pri files with default pre-defined locations for FKFramework3 related files.
-FK_FRAMEWORK_PATH - FKFramework3 root directory
-FK_TOOLS_FOLDER - Tools section directory
-FK_UTILS_FOLDER - Utils section directory
+**Paths section**
+
+This section is a separate git repository. The repository contains *.pri* files with default pre-defined locations for FKFramework3 related files.
+- FK_FRAMEWORK_PATH - FKFramework3 root directory
+- FK_TOOLS_FOLDER - Tools section directory
+- FK_UTILS_FOLDER - Utils section directory
+
 Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use utils section
 If you want override used FKFramework3 location, you should set variable before include command. So, there is the best place for include command in the end of project file.
 
-Tools section
+**Tools section**
+
 This section uncludes the set of tools designed for different develop or deploy automatisations. 
-deploy_desktop
-deploy_mobile
-helpers
-imagesetGenerator
+- deploy_desktop
+- deploy_mobile
+- helpers
+- imagesetGenerator
 
-Utils section
-This section provides the set of project inludes for enabling FKFramework3 features. 
+**Utils section**
+
+This section provides the set of *.pri* files for enabling FKFramework3 features. 
 Add value to FK variable (e.g. FK += imageset) to enable feature
-helpers - set of common used headers (see sources for details)
-deploy
-mobile
-imageset
-modules
+- helpers - set of common used headers (see sources for details)
+- deploy
+- mobile
+- imageset
+- modules
 
-Modules section
+**Modules section**
 
-Samples section
+**Samples section**
