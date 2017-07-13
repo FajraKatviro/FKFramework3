@@ -7,7 +7,7 @@ SUBDIRS += \
     \ #DeployQML \
     \ #DeployDesktop \
     \ #DeployMobile \
-    \ #ImagesetBuilder \
+    imagesetBuilder \
     helpers
 
 deploy.CONFIG = recursive
