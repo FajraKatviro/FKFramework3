@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS = \ #modules \
-          \ #tools \
+          tools \
           utils
           #samples_src
 
@@ -12,3 +12,6 @@ OTHER_FILES = README.md \
               paths/README.md \
               paths/fkframeworkpath.pri \
               paths/fkframework.pri
+
+deploy.CONFIG = recursive
+QMAKE_EXTRA_TARGETS += deploy

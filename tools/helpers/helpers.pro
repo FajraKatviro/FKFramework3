@@ -10,12 +10,13 @@ headers.files = commonPaths.h \
                 selectBestSizeset.h \
                 sizeString.h
 
-headers.path = $$FK_UTILS_FOLDER/helpers
+headers.path = $$FK_TOOLS_FOLDER/helpers
 
 utils.files = fkhelpers.pri
-utils.path = $$FK_UTILS_FOLDER
+utils.path = $$FK_TOOLS_FOLDER/helpers
 
 !isEmpty(FK_UTILS_FOLDER){
     INSTALLS += headers utils
 }
 
+QMAKE_EXTRA_TARGETS += deploy

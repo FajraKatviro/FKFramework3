@@ -1,1 +1,1 @@
-include(../tools/DeployMobile/fkdeploy_mobile.pri)
+include(../tools/deployMobile/fkdeploy_mobile.pri)

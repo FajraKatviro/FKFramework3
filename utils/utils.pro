@@ -12,3 +12,5 @@ utils.files = fkdeploy.pri \
 utils.path = $$FK_UTILS_FOLDER
 
 INSTALLS += utils
+
+QMAKE_EXTRA_TARGETS += deploy

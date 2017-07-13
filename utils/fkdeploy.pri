@@ -1,1 +1,1 @@
-include(../tools/DeployDesktop/fkdeploy.pri)
+include(../tools/deployDesktop/fkdeploy.pri)

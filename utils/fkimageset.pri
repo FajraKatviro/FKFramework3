@@ -1,1 +1,1 @@
-include(../tools/ImagesetBuilder/fkimageset.pri)
+include(../tools/imagesetBuilder/fkimageset.pri)

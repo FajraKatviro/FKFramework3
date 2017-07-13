@@ -1,1 +1,1 @@
-include(../tools/Helpers/fkhelpers.pri)
+include(../tools/helpers/fkhelpers.pri)
