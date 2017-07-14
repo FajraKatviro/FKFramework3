@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    \ #ImageManager \
+    imageManager \
     \ #PackageGenerator \
     \ #PackageManager \
     \ #DeployQML \

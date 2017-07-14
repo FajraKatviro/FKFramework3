@@ -1,9 +1,17 @@
 
-include(../FKUtils/fktools/fktoolsfolder.pri)
+include(../paths/fkframeworkpath.pri)
 
 win32{
     deploy.commands = windeployqt --no-translations --qmldir "$$_PRO_FILE_PWD_" "$$FK_TOOLS_FOLDER/$${TARGET}.exe"
-    QMAKE_EXTRA_TARGETS += deploy
+}
+
+QMAKE_EXTRA_TARGETS += deploy
+
+unix:!android {
+    runScript.path = "$$FK_TOOLS_FOLDER"
+    runScriptFile = $$runScript.path/$${TARGET}.sh
+    runScript.extra = echo "./$${TARGET}" > $$runScriptFile; chmod +x $$runScriptFile
+    INSTALLS += runScript
 }
 
 !ios:!android{
@@ -13,4 +21,5 @@ win32{
     export(INSTALLS)
 }
 
-INCLUDEPATH += $$PWD/../FKUtils/sharedHeaders
+
+INCLUDEPATH += $$PWD/helpers
