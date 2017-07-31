@@ -6,8 +6,8 @@
 
 Схема разработки проекта:
 
-| № п\п |Feature|Section|Implementation|Utilisation|Testing|Documentation|Description|
-|---|---|---|---|---|---|---|
+| № п\п |Feature|Section|Impl|Util|Test|Doc|Description|
+|---|---|---|---|---|---|---|---|
 |1|mobile|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
 |2|deploy|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
 |3|imageset|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
