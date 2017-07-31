@@ -6,17 +6,25 @@
 
 Схема разработки проекта:
 
-| № п\п |Подпроект|Статус|Секция|Описание|
-|---|---|---|---|---|
-|1|FKNetwork|In progress|modules|Базовые компоненты для сетевого взаимодействия|
-|2|FKUpdate|Pending|modules|Компоненты для проверки наличия, скачивания и применения обновлений|
-|3|FKBootstrapper|Pending|tools|Готовый клиент для загрузки приложений через модуль обновления|
-|4|FKTools|In progress|tools|Набор вспомогательных инструментов для разработки|
-|5|FKUtils|Testing|utils|Набор вспомогательных инструментов для интеграции в проект|
-|6|FKServer|Pending|modules|Конфигурация сетевых компонентов для создания сервера|
-|7|FKClient|Pending|modules|Конфигурация сетевых компонентов для создания клиента|
-|8|FKLudo|Pending|modules|Конфигурация сетевых компонентов для создания многопользовательской игры|
-|9|FKSamples|Pending|samples|Примеры использования модулей|
+| № п\п |Feature|Section|Implementation|Utilisation|Testing|Documentation|Description|
+|---|---|---|---|---|---|---|
+|1|mobile|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
+|2|deploy|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
+|3|imageset|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
+|4|content|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
+|5|modules|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
+|6|helpers|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор заголовочных файлов, содержащих ряд полезных функций|
+|7|ImageManager|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
+|8|PackageGenerator|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
+|9|PackageManager|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
+|10|DeployQML|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Вспомогательное приложение для копирования QML-зависимостей при создании deb-пакета (invalid)|
+|11|Bootstrapper|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
+|12|Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
+|13|Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Компоненты для проверки наличия, скачивания и применения обновлений|
+|14|Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания сервера|
+|15|Client|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания клиента|
+|16|Ludo|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания многопользовательской игры|
+|17|samples|Samples|:clock10:|:clock10:|:clock10:|:clock10:|Примеры использования модулей|
 
 
 Building:
@@ -24,7 +32,7 @@ Building:
   1. Clone repository with --recursive option
   2. Configure root project (FKFramework.pro) with QtCreator
     1. Add 'make install' step after 'make' step
-    2. **(windows only)** add 'make deploy' step after 'make install' step
+    2. Add 'make deploy' step after 'make install' step
   3. Build
 
 Framework binaries and source components are placed to default installation folder ($HOME/Applications/FKFramework for mac, $HOME/FKFramework for other unix, %HOMEPATH%\AppData\Roaming\FKFramework for windows)
@@ -36,7 +44,7 @@ Integration:
   2. Include 'fkframework.pri' file from submodule to the end of your project file
   3. Enable required features (see utils section)
 
-**Full description:**
+**Project structure:**
 
 **Paths section**
 
@@ -50,22 +58,21 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 
 **Tools section**
 
-This section uncludes the set of tools designed for different develop or deploy automatisations. 
-- deploy_desktop
-- deploy_mobile
-- helpers
-- imagesetGenerator
+This section includes the set of tools designed for different develop or deploy automatisations.
+See content table for tools description.
 
 **Utils section**
 
 This section provides the set of *.pri* files for enabling FKFramework3 features. 
 Add value to FK variable (e.g. FK += imageset) to enable feature
-- helpers - set of common used headers (see sources for details)
-- deploy
-- mobile
-- imageset
-- modules
+See content table for avaliable utils.
 
 **Modules section**
 
+This section contains the set of QML plugins for application development.
+See content table for avaliable modules and detailed description.
+
 **Samples section**
+
+This section contains the set of FKFramework-based application samples.
+See source code for details.
