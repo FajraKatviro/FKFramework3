@@ -10,10 +10,10 @@ headers.files = commonPaths.h \
                 selectBestSizeset.h \
                 sizeString.h
 
-headers.path = $$FK_TOOLS_FOLDER/helpers
+headers.path = $$FK_UTILS_FOLDER/helpers
 
 utils.files = fkhelpers.pri
-utils.path = $$FK_TOOLS_FOLDER/helpers
+utils.path = $$FK_UTILS_FOLDER/helpers
 
 INSTALLS += headers utils
 

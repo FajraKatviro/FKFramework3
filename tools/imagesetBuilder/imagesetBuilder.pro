@@ -4,7 +4,7 @@ TEMPLATE = aux
 include(../../paths/fkframeworkpath.pri)
 
 utils.files = fkimageset.pri
-utils.path = $$FK_TOOLS_FOLDER/imagesetBuilder
+utils.path = $$FK_UTILS_FOLDER/imagesetBuilder
 
 INSTALLS += utils
 

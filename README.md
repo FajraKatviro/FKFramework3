@@ -6,19 +6,19 @@
 
 Схема разработки проекта:
 
-| № п\п |Feature|Section|Impl|Util|Test|Doc|Description|
+| № п\п |Component|Section|Impl|Util|Test|Doc|Description|
 |---|---|---|---|---|---|---|---|
-|1|mobile|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
-|2|deploy|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
-|3|imageset|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
-|4|content|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
-|5|modules|Utils|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
-|6|helpers|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор заголовочных файлов, содержащих ряд полезных функций|
-|7|ImageManager|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
-|8|PackageGenerator|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
-|9|PackageManager|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
-|10|DeployQML|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Вспомогательное приложение для копирования QML-зависимостей при создании deb-пакета (invalid)|
-|11|Bootstrapper|Tools|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
+|1|mobile|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[:clock10:](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
+|2|deploy|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
+|3|imageset|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
+|4|content|Features|:clock10:|:clock10:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
+|5|modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
+|6|helpers|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор заголовочных файлов, содержащих ряд полезных функций|
+|7|ImageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
+|8|PackageGenerator|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
+|9|PackageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
+|10|DeployQML|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Вспомогательное приложение для копирования QML-зависимостей при создании deb-пакета (invalid)|
+|11|Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
 |12|Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
 |13|Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Компоненты для проверки наличия, скачивания и применения обновлений|
 |14|Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания сервера|
@@ -42,7 +42,7 @@ Integration:
 
   1. Add to you project submodule https://github.com/FajraKatviro/FKDefaultPaths.git
   2. Include 'fkframework.pri' file from submodule to the end of your project file
-  3. Enable required features (see utils section)
+  3. Enable required features (see features section)
 
 **Project structure:**
 
@@ -50,22 +50,21 @@ Integration:
 
 This section is a separate git repository. The repository contains *.pri* files with default pre-defined locations for FKFramework3 related files.
 - FK_FRAMEWORK_PATH - FKFramework3 root directory
-- FK_TOOLS_FOLDER - Tools section directory
 - FK_UTILS_FOLDER - Utils section directory
 
-Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use utils section
+Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use fkfeatures
 If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PATH variable before include command. So, there is the best place for include command at the end of project file.
 
-**Tools section**
+**Features section**
 
-This section includes the set of tools designed for different develop or deploy automatisations.
-See content table for tools description.
+This section provides the set of *.pri* files for enabling FKFramework3 features.
+Add value to FK variable (e.g. FK += imageset) to enable feature
+See content table for avaliable utils.
 
 **Utils section**
 
-This section provides the set of *.pri* files for enabling FKFramework3 features. 
-Add value to FK variable (e.g. FK += imageset) to enable feature
-See content table for avaliable utils.
+This section includes the set of tools designed for different develop or deploy automatisations.
+See content table for tools description.
 
 **Modules section**
 
