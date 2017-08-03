@@ -1,4 +1,4 @@
-Features section
+# Features section
 
 This section designed for quick enabling/disabling framework features from project file
 
