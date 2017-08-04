@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS = \ #modules \
-          tools \
+          utils \
           features
           #samples_src
 

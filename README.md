@@ -63,8 +63,8 @@ See content table for avaliable utils.
 
 **Utils section**
 
-This section includes the set of tools designed for different develop or deploy automatisations.
-See content table for tools description.
+This section includes the set of utils designed for different develop or deploy automatisations.
+See content table for utils description.
 
 **Modules section**
 

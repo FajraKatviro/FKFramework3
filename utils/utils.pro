@@ -7,9 +7,10 @@ SUBDIRS += \
     \ #DeployQML \
     \ #DeployDesktop \
     \ #DeployMobile \
-    imagesetBuilder \
+    contentPacker \
     helpers
 
 deploy.CONFIG = recursive
 QMAKE_EXTRA_TARGETS += deploy
 
+OTHER_FILES = README.md
