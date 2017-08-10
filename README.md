@@ -13,7 +13,7 @@
 |3|imageset|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
 |4|content|Features|:clock10:|:clock10:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
 |5|modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
-|6|helpers|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|:clock10:|Набор заголовочных файлов, содержащих ряд полезных функций|
+|6|helpers|Features|:white_check_mark:|:white_check_mark:|:clock10:|[src](utils/helpers)|Набор заголовочных файлов, содержащих ряд полезных функций|
 |7|ImageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
 |8|PackageGenerator|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
 |9|PackageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
@@ -31,9 +31,8 @@ Building:
 
   1. Clone repository with --recursive option
   2. Configure root project (FKFramework.pro) with QtCreator
-    1. Add 'make install' step after 'make' step
-    2. Add 'make deploy' step after 'make install' step
-  3. Build
+  3. Add 'make deploy' step after 'make' step
+  4. Build
 
 Framework binaries and source components are placed to default installation folder ($HOME/Applications/FKFramework for mac, $HOME/FKFramework for other unix, %HOMEPATH%\AppData\Roaming\FKFramework for windows)
 
@@ -43,6 +42,7 @@ Integration:
   1. Add to you project submodule https://github.com/FajraKatviro/FKDefaultPaths.git
   2. Include 'fkframework.pri' file from submodule to the end of your project file
   3. Enable required features (see features section)
+  4. Add 'make deploy' step after 'make' step
 
 **Project structure:**
 

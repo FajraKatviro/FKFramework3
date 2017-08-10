@@ -1,6 +1,6 @@
 QT += core concurrent
 
-DESTDIR = $$PWD/../../bin
+#DESTDIR = $$PWD/../../bin
 
 CONFIG += c++11
 

@@ -1,13 +1,13 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    imageManager \
+    \ #ImageManager \
     \ #PackageGenerator \
     \ #PackageManager \
     \ #DeployQML \
     \ #DeployDesktop \
     \ #DeployMobile \
-    contentPacker \
+    \ #contentPacker \
     helpers
 
 deploy.CONFIG = recursive

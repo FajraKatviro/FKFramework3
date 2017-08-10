@@ -3,7 +3,7 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-DESTDIR = $$PWD/../../bin
+#DESTDIR = $$PWD/../../bin
 
 SOURCES += main.cpp \
     ImageChecker.cpp

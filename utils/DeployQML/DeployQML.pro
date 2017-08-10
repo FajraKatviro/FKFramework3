@@ -11,6 +11,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp
 
-DESTDIR = $$PWD/../../bin
+#DESTDIR = $$PWD/../../bin
 
 include(../deployment.pri)

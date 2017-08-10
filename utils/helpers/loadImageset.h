@@ -11,6 +11,8 @@
 #include "resourceLocation.h"
 
 namespace FKUtility {
+
+    //use this function to load resource from imageset for running device resolution
     bool loadImageset(const QString& imageset, const QSize& platformResolution){
         qDebug("load imageset %s", imageset.toLatin1().constData());
         QList<QSize> avaliableSizes;

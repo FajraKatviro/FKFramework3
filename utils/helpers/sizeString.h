@@ -6,6 +6,8 @@
 #include <QStringList>
 
 namespace FKUtility{
+
+    //use this function to convert string to size object
     QSize stringToSize(const QString& str){
         QStringList parseStr=str.split("x");
         if(parseStr.size()==2){
@@ -13,6 +15,8 @@ namespace FKUtility{
         }
         return QSize();
     }
+
+    //use this function to convert size object to string representation
     QString sizeToString(const QSize& size){
         return QString("%1x%2").arg(size.width()).arg(size.height());
     }

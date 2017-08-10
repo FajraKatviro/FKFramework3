@@ -6,6 +6,8 @@
 #include <algorithm>
 
 namespace FKUtility{
+
+    //use this function to select the best size from the list, nearest to target size
     QSize selectBestSizeset(const QList<QSize>& avaliableSizes,const QSize& targetSize){
         if(avaliableSizes.isEmpty() || targetSize.isEmpty())return QSize();
 

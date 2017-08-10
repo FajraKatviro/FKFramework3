@@ -3,9 +3,10 @@
 
 #include <QCoreApplication>
 
-namespace FKProjectHelper{
+namespace FKUtility{
 
-        void ReplicateApplicationInfoFromProject(){
+        //Use this function to import application properties from project file to application object
+        void replicateApplicationInfoFromProject(){
                 QCoreApplication::setApplicationName(APP_NAME);
                 QCoreApplication::setApplicationVersion(APP_VERSION);
                 QCoreApplication::setOrganizationName(APP_MAINTAINER);

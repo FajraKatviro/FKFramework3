@@ -6,6 +6,8 @@
 #include <QStandardPaths>
 
 namespace FKUtility {
+
+    //use this function to get 'bundled' resources location
     QDir dataDir(){
         QString path(QStandardPaths::locate(QStandardPaths::AppDataLocation, "constAppData", QStandardPaths::LocateDirectory));
         if(path.isEmpty()){
@@ -17,9 +19,13 @@ namespace FKUtility {
         }
         return QDir(path);
     }
+
+    //use this function to get downloaded resources location
     QDir dlcDir(){
         return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/dlc");
     }
+
+    //use this function to get persistent data storage location
     QDir storageDir(){
         return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/storage");
     }

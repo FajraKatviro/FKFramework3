@@ -1,7 +1,7 @@
 QT += core
 QT -= gui
 
-DESTDIR = $$PWD/../../bin
+#DESTDIR = $$PWD/../../bin
 
 TARGET = PackageManager
 CONFIG += console
