@@ -7,7 +7,7 @@
 Схема разработки проекта:
 
 | № п\п |Component|Section|Impl|Util|Test|Doc|Description|
-|---|---|---|---|---|---|---|---|
+|---|---|---|:---:|:---:|:---:|:---:|---|
 |1|mobile|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[:clock10:](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
 |2|deploy|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
 |3|imageset|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
@@ -52,13 +52,13 @@ This section is a separate git repository. The repository contains *.pri* files 
 - FK_FRAMEWORK_PATH - FKFramework3 root directory
 - FK_UTILS_FOLDER - Utils section directory
 
-Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use fkfeatures
+Include 'fkframeworkpath.pri' to get these values or include 'fkframework.pri' to use fkfeatures.
 If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PATH variable before include command. So, there is the best place for include command at the end of project file.
 
 **Features section**
 
 This section provides the set of *.pri* files for enabling FKFramework3 features.
-Add value to FK variable (e.g. FK += imageset) to enable feature
+Add value to FK variable (e.g. FK += imageset) to enable feature.
 See content table for avaliable utils.
 
 **Utils section**
