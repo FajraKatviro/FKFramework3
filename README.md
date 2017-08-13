@@ -17,14 +17,13 @@
 |7|ImageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
 |8|PackageGenerator|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
 |9|PackageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
-|10|DeployQML|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Вспомогательное приложение для копирования QML-зависимостей при создании deb-пакета (invalid)|
-|11|Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
-|12|Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
-|13|Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Компоненты для проверки наличия, скачивания и применения обновлений|
-|14|Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания сервера|
-|15|Client|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания клиента|
-|16|Ludo|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания многопользовательской игры|
-|17|samples|Samples|:clock10:|:clock10:|:clock10:|:clock10:|Примеры использования модулей|
+|10|Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
+|11|Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
+|12|Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Компоненты для проверки наличия, скачивания и применения обновлений|
+|13|Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания сервера|
+|14|Client|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания клиента|
+|15|Ludo|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания многопользовательской игры|
+|16|samples|Samples|:clock10:|:clock10:|:clock10:|:clock10:|Примеры использования модулей|
 
 
 Building:
