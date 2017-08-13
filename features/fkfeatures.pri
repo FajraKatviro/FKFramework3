@@ -6,7 +6,7 @@ contains(FK, content):include(utils/contentPacker/fkcontent.pri)
 contains(FK, modules):include(utils/modules/fkmodules.pri)
 contains(FK, helpers):include(utils/helpers/fkhelpers.pri)
 
-fkpreprocess.depends = imageset content
+fkpreprocess.depends = imagesets
 fkpostprocess.depends = deploy
 
-QMAKE_EXTRA_TARGETS += fkpreprocess fkpostprocess imageset content mobile deploy
+QMAKE_EXTRA_TARGETS += fkpreprocess fkpostprocess imagesets deploy

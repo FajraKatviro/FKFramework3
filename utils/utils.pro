@@ -7,7 +7,7 @@ SUBDIRS += \
     \ #DeployQML \
     deployDesktop \
     deployMobile \
-    \ #contentPacker \
+    contentPacker \
     helpers
 
 deploy.CONFIG = recursive

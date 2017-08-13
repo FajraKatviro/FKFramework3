@@ -18,8 +18,6 @@ isEmpty(LONG_DESCRIPTION){
         error("LONG_DESCRIPTION variable not set, deploy for linux would fail")
 }
 
-include(fkprojecthelper.pri)
-
 win32{
     INSTALL_ICON = $$RC_ICONS
 }else{
@@ -46,8 +44,6 @@ win32{
     write_file($$DEPLOY_BUILD_CONFIG_FILE,ATTRIBUTELIST)
 }
 
-include (../tools/fktoolsfolder.pri)
-
 win32{
     deploy.commands = windeployqt --no-translations --qmldir "$$_PRO_FILE_PWD_" "$$DESTDIR" $$escape_expand(\n\t) \
         "$$PWD/winDeploy.bat" "$$system_path($$DEPLOY_BUILD_CONFIG_FILE)" "$$system_path($$DEPLOY_BUILD_FOLDER)"
@@ -59,19 +55,12 @@ win32{
         deploy.commands = echo Target not supported by FKDeploy tool. Please, use iosdeployqt instead
     }
 }else:!android{
-    deploy.commands = "$$PWD/nixdeployqt.sh" "$${TARGET}" "$$DESTDIR" "$$FK_TOOLS_FOLDER" "$$_PRO_FILE_PWD_" $$escape_expand(\n\t) \
+    deploy.commands = "$$PWD/nixdeployqt.sh" "$${TARGET}" "$$DESTDIR" "$$PWD/../" "$$_PRO_FILE_PWD_" $$escape_expand(\n\t) \
         "$$PWD/nixDeploy.sh" "$$DEPLOY_BUILD_CONFIG_FILE" "$$DEPLOY_BUILD_FOLDER"
 }else{
-    deploy.commands = echo Target not supported by KDeploy tool. Please, use androiddeployqt instead
+    deploy.commands = echo Target not supported by FKDeploy tool. Please, use androiddeployqt instead
 }
 
-QMAKE_EXTRA_TARGETS += deploy
 
 
-large_resource_compiler.output   = "$$system_path($${DESTDIR}/constAppData/universalResources/${QMAKE_FILE_IN_BASE}.rcc)"
-large_resource_compiler.commands = rcc --binary --no-compress "${QMAKE_FILE_NAME}" -o "${QMAKE_FILE_OUT}"
-large_resource_compiler.CONFIG = no_link target_predeps
-large_resource_compiler.input = LARGE_RESOURCES
-
-QMAKE_EXTRA_COMPILERS += large_resource_compiler
 

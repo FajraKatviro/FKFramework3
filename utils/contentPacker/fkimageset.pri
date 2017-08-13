@@ -27,7 +27,3 @@ android{
 
 imagesets.commands =   "$$system_path($$FK_UTILS_FOLDER/packageManager)" "$$ART_FOLDER" --dir $$escape_expand(\n\t) \
                        "$$system_path($$FK_UTILS_FOLDER/packageGenerator)"  "$$ART_FOLDER" "$$ART_BUILD_FOLDER" "$$ART_DEPLOY_FOLDER" --clean --add --qrc --rcc --dir $$escape_expand(\n\t)
-
-first.depends += qmake
-
-QMAKE_EXTRA_TARGETS += first imagesets
