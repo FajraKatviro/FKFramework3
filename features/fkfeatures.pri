@@ -7,6 +7,6 @@ contains(FK, modules):include(utils/modules/fkmodules.pri)
 contains(FK, helpers):include(utils/helpers/fkhelpers.pri)
 
 fkpreprocess.depends = imageset content
-fkpostprocess.depends = mobile deploy
+fkpostprocess.depends = deploy
 
 QMAKE_EXTRA_TARGETS += fkpreprocess fkpostprocess imageset content mobile deploy

@@ -5,8 +5,8 @@ SUBDIRS += \
     \ #PackageGenerator \
     \ #PackageManager \
     \ #DeployQML \
-    \ #DeployDesktop \
-    \ #DeployMobile \
+    deployDesktop \
+    deployMobile \
     \ #contentPacker \
     helpers
 
