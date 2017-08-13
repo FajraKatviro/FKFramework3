@@ -61,7 +61,7 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 This section provides the set of *.pri* files for enabling FKFramework3 features.
 Add value to FK variable (e.g. FK += imageset) to enable feature.
 See content table for avaliable utils.
-Some features are separate build steps. They are included to fkpre(post)process build steps. You can invoke them separately if disable default build steps (see [fkfeatures.pro](features/fkfeatures.pro) for details)
+Some features are separate build steps. They are included to fkpre(post)process build steps. You can invoke them separately if disable default build steps (see [fkfeatures.pri](features/fkfeatures.pri) for details)
 
 **Utils section**
 
