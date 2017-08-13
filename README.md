@@ -8,7 +8,7 @@
 
 | № п\п |Component|Section|Impl|Util|Test|Doc|Description|
 |---|---|---|:---:|:---:|:---:|:---:|---|
-|1|mobile|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[:clock10:](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
+|1|mobile|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
 |2|deploy|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
 |3|imageset|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
 |4|content|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
