@@ -11,7 +11,7 @@
 |1|mobile|Features|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[:clock10:](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
 |2|deploy|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания установочных дистрибутивов для десктопных платформ|
 |3|imageset|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для создания ресурсов изображений под различные разрешения экрана|
-|4|content|Features|:clock10:|:clock10:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
+|4|content|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для упаковки немасштабируемого контента|
 |5|modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
 |6|helpers|Features|:white_check_mark:|:white_check_mark:|:clock10:|[src](utils/helpers)|Набор заголовочных файлов, содержащих ряд полезных функций|
 |7|ImageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
@@ -42,7 +42,8 @@ Integration:
   1. Add to you project submodule https://github.com/FajraKatviro/FKDefaultPaths.git
   2. Include 'fkframework.pri' file from submodule to the end of your project file
   3. Enable required features (see features section)
-  4. Add 'make deploy' step after 'make' step
+  4. Add 'make fkpreprocess' step before 'make' step
+  5. Add 'make fkpostprocess' step after 'make' step
 
 **Project structure:**
 
@@ -60,6 +61,7 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 This section provides the set of *.pri* files for enabling FKFramework3 features.
 Add value to FK variable (e.g. FK += imageset) to enable feature.
 See content table for avaliable utils.
+Some features are separate build steps. They are included to fkpre(post)process build steps. You can invoke them separately if disable default build steps (see [fkfeatures.pro](features/fkfeatures.pro) for details)
 
 **Utils section**
 
