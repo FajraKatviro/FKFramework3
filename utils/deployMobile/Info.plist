@@ -11,7 +11,7 @@
         <string>6.0</string>
 
         <key>CFBundleExecutable</key>
-        <string>TARGET</string>              <----------------------------------write target name here
+        <string>@EXECUTABLE@</string>
 
         <key>CFBundleIcons</key>
         <dict>

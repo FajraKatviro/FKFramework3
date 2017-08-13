@@ -20,7 +20,10 @@ isEmpty(FK_MOBILE_SPLASH_SCREENS){
 ios{
     QMAKE_INFO_PLIST = $$FK_IOS_PLIST
 
-    QMAKE_IOS_DEPLOYMENT_TARGET = 7.0
+    isEmpty(QMAKE_IOS_DEPLOYMENT_TARGET){
+        warning("QMAKE_IOS_DEPLOYMENT_TARGET path is not set, 7.0 default version used")
+        QMAKE_IOS_DEPLOYMENT_TARGET = 7.0
+    }
 
     ios_icon.files = $$files($$FK_MOBILE_ICONS/AppIcon*.png) $$files($$FK_MOBILE_ICONS/iTunesArtwork*)
     QMAKE_BUNDLE_DATA += ios_icon
