@@ -30,7 +30,7 @@ Image manager is the GUI tool for designing imagesets.
 It allow create imagesets, add/remove sizepacks, manage used images.
 Also this tool allows create icons and splashscreens for deployMobile feature.
 
-*PackageGenerator**
+**PackageGenerator**
 
 Package generator is the tool used to create content packages from imageset json description.
 Internally it uses Qt resource compiler to create binary resource files.
