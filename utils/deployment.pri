@@ -5,6 +5,7 @@ win32{
     deploy.commands = windeployqt --no-translations --qmldir "$$_PRO_FILE_PWD_" "$$FK_UTILS_FOLDER/$${TARGET}.exe"
 }
 
+deploy.depends = install
 QMAKE_EXTRA_TARGETS += deploy
 
 unix:!android {

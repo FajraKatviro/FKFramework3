@@ -14,9 +14,9 @@
 |4|content|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L67)|Набор средств для упаковки немасштабируемого контента|
 |5|modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
 |6|helpers|Features|:white_check_mark:|:white_check_mark:|:clock10:|[src](utils/helpers)|Набор заголовочных файлов, содержащих ряд полезных функций|
-|7|ImageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Графический клиент для управления наборами изображений|
-|8|PackageGenerator|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
-|9|PackageManager|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
+|7|ImageManager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Графический клиент для управления наборами изображений|
+|8|PackageGenerator|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
+|9|PackageManager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
 |10|DeployQML|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Вспомогательное приложение для копирования QML-зависимостей при создании deb-пакета (invalid)|
 |11|Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
 |12|Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
