@@ -8,25 +8,25 @@ It is not a one more game engine. The main purpose of this project is adding of 
 
 | №№ |Component|Section|Impl|Util|Test|Doc|Description|
 |---|---|---|:---:|:---:|:---:|:---:|---|
-|1|:key: mobile|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
-|2|:key: deploy|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L25)|Набор средств для создания установочных дистрибутивов для десктопных платформ|
-|3|:key: imageset|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L60)|Набор средств для создания ресурсов изображений под различные разрешения экрана|
-|4|:key: content|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L67)|Набор средств для упаковки немасштабируемого контента|
-|5|:key: modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Набор средств для подключения FKFramework-модулей|
-|6|:key: helpers|Features|:white_check_mark:|:white_check_mark:|:clock10:|[src](utils/helpers)|Набор заголовочных файлов, содержащих ряд полезных функций|
+|1|:key: mobile|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L9)|Adds qmake variables for quick mobile target setup|
+|2|:key: deploy|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L25)|Creates offline intaller for desktop platforms|
+|3|:key: imageset|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L60)|Packs screen-resoultion-related images into imagesets|
+|4|:key: content|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L67)|Packs raw content into uncompressed resources|
+|5|:key: modules|Features|:clock10:|:white_check_mark:|:clock10:|:clock10:|Enables FKFramework-modules|
+|6|:key: helpers|Features|:white_check_mark:|:white_check_mark:|:clock10:|[src](utils/helpers)|Includes set of header files containing some common useful functions|
 |***|*****************|**********|*****|*****|*****|*****|********************************|
-|7|:wrench: Image Manager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Графический клиент для управления наборами изображений|
-|8|:wrench: Package Generator|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Приложение для сборки ресурсов под различные разрешения экрана на основе файлов конфигурации набора изображений|
-|9|:wrench: Package Manager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Приложение для управления файлами конфигурации наборов изображений под различные разрешения экрана|
-|10|:wrench: Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Готовый клиент для загрузки приложений через модуль обновления|
+|7|:wrench: Image Manager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|GUI-client for imageset management|
+|8|:wrench: Package Generator|Utils|:arrows_counterclockwise:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Application for building screen-resoultion-related content from imageset configuration files|
+|9|:wrench: Package Manager|Utils|:white_check_mark:|:white_check_mark:|:clock10:|[doc](utils/PackageManager/README.md)|Application for managing screen-resoultion-related imageset's configuration files|
+|10|:wrench: Bootstrapper|Utils|:clock10:|:clock10:|:clock10:|:clock10:|Ready-to-use client for application installing via update module|
 |***|*****************|**********|*****|*****|*****|*****|********************************|
-|11|:package: Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Базовые компоненты для сетевого взаимодействия|
-|12|:package: Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Компоненты для проверки наличия, скачивания и применения обновлений|
-|13|:package: Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания сервера|
-|14|:package: Client|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания клиента|
-|15|:package: Ludo|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Конфигурация сетевых компонентов для создания многопользовательской игры|
+|11|:package: Network|Modules|:arrows_counterclockwise:|:clock10:|:clock10:|:clock10:|Basic network components|
+|12|:package: Update|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Components for checking, downloading and applying application updates|
+|13|:package: Server|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Network components configured for server creation|
+|14|:package: Client|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Network components configured for client creation|
+|15|:package: Ludo|Modules|:clock10:|:clock10:|:clock10:|:clock10:|Network components configured for multiplayer game creation|
 |***|*****************|**********|*****|*****|*****|*****|********************************|
-|16|:steam_locomotive: samples|Samples|:clock10:|:clock10:|:clock10:|:clock10:|Примеры использования модулей|
+|16|:steam_locomotive: samples|Samples|:clock10:|:clock10:|:clock10:|:clock10:|Modules usage examples|
 
 
 Building:
