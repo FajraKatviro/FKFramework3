@@ -65,8 +65,8 @@ To use this feature you must set ART_FOLDER to your imageset folder (see package
 
 **content**
 
-Invoke qt rcc compiler with no compression option and place resources to 'bundled' data location 
-Add required *.qrc files to CONTENT variable to use this feature 
+Invokes qt rcc compiler with no compression option and place resources to 'bundled' data location.
+  Add required *.qrc files to CONTENT variable to use this feature 
 
 
 **modules**
