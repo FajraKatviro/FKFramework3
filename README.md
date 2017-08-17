@@ -1,12 +1,12 @@
 ﻿# FKFramework3
 
-Проект представляет собой набор средств для создания мультиплеерных игр на основе QML и Qt3D
+This project is a toolset for multiplayer game creation with QML and Qt3D
 
-Целью проекта не явлется написание ещё одного слоя абстракции вокруг Qt. Напротив, сюда будут включаться только решения, для которых не существует реализации в самом Qt (в первую очередь, сетевое взаимодействие и синхронизация объектов из QML-контекста)
+It is not a one more game engine. The main purpose of this project is adding of some important game-related features missed in Qt (generally, QML-objects network interactions and syncronisations)
 
-Схема разработки проекта:
+**Project structure:**
 
-| № п\п |Component|Section|Impl|Util|Test|Doc|Description|
+| №№ |Component|Section|Impl|Util|Test|Doc|Description|
 |---|---|---|:---:|:---:|:---:|:---:|---|
 |1|:key: mobile|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L9)|Набор средств для упрощения настройки qmake-проекта для мобильных платформ|
 |2|:key: deploy|Features|:white_check_mark:|:white_check_mark:|:clock10:|[doc](features/README.md#L25)|Набор средств для создания установочных дистрибутивов для десктопных платформ|
@@ -47,7 +47,9 @@ Integration:
   4. Add 'make fkpreprocess' step before 'make' step
   5. Add 'make fkpostprocess' step after 'make' step
 
-**Project structure:**
+
+
+**Overview:**
 
 **Paths section**
 
