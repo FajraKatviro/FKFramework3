@@ -4,7 +4,7 @@ This section designed for quick enabling/disabling framework features from proje
 
 Add feature to FK variable to enable it (e.g. FK += imageset)
 
-**AVALIABLE VALUES**
+**AVAILABLE VALUES**
 
 **mobile**
 
