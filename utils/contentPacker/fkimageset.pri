@@ -26,4 +26,4 @@ android{
 }
 
 imagesets.commands =   "$$system_path($$FK_UTILS_FOLDER/PackageManager)" "$$ART_FOLDER" --dir $$escape_expand(\n\t) \
-                       "$$system_path($$FK_UTILS_FOLDER/PackageGenerator)"  "$$ART_FOLDER" "$$ART_BUILD_FOLDER" "$$ART_DEPLOY_FOLDER" --clean --add --qrc --rcc --dir $$escape_expand(\n\t)
+                       "$$system_path($$FK_UTILS_FOLDER/PackageGenerator)"  "$$ART_FOLDER" "$$ART_BUILD_FOLDER" "$$ART_DEPLOY_FOLDER" --clean --add --qrc --rcc --dir --qtbin "$$[QT_INSTALL_BINS]" $$escape_expand(\n\t)

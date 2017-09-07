@@ -4,15 +4,8 @@ TEMPLATE = aux
 include(../../paths/fkframeworkpath.pri)
 
 mobileHelpers.files = Info.plist \
-		android_splashScreen/drawable-hdpi/logo.png \
-		android_splashScreen/drawable-xhdpi/logo.png \
-		android_splashScreen/drawable-xxhdpi/logo.png \
-		ios_splashScreen/LaunchImage-iOS7@2x.png \
-		ios_splashScreen/LaunchImage-iOS7-568h@2x.png \
-		ios_splashScreen/LaunchImage-iOS7-Landscape.png \
-		ios_splashScreen/LaunchImage-iOS7-Landscape@2x.png \
-		ios_splashScreen/LaunchImage-iOS7-Portrait.png \
-		ios_splashScreen/LaunchImage-iOS7-Portrait@2x.png \
+                android_splashScreen \
+                ios_splashScreen
 
 mobileHelpers.path = $$FK_UTILS_FOLDER/deployMobile
 

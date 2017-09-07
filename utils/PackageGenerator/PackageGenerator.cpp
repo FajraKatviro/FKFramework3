@@ -112,15 +112,14 @@ bool processResource(QProcess* process){
 bool PackageGenerator::buildRCC(){
     output("Build rcc");
 
-    QProcessEnvironment e(QProcessEnvironment::systemEnvironment());
-    QString qtdir(e.value("QTDIR"));
     QString command;
-    if(!qtdir.isEmpty()){
-        command=qtdir+"/bin/rcc";
+    if(!_qtBinaryPath.isEmpty()){
+        command=QDir(_qtBinaryPath).filePath("rcc");
     }else{
-        output("QTDIR environment variable is not set, trying run rcc from PATH");
         command="rcc";
     }
+
+    output(QString("Resource compiler execution programm used: %1").arg(command));
 
     QList<QProcess*> processPool;
     for(qint32 s=0;s<_targetSizes.size();++s){
@@ -141,6 +140,10 @@ bool PackageGenerator::buildRCC(){
     }
     output("Success");
     return true;
+}
+
+void PackageGenerator::setQtBinaryPath(const QString& path){
+    _qtBinaryPath = path;
 }
 
 void PackageGenerator::output(const QString& msg){

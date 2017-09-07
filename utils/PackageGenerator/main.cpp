@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     a.setApplicationName("Imageset package generator");
-    a.setApplicationVersion("1.2");
+    a.setApplicationVersion("1.3");
 
     const qint32 delay=3000;
 
@@ -55,12 +55,14 @@ int main(int argc, char *argv[])
     QCommandLineOption rcc("rcc","Create binary resources (run Qt resource compiler)");
     QCommandLineOption dir("dir","Run for nested folders (assume provided location of multiple packages)");
     QCommandLineOption runningDelay("d",QString("Wait %1 ms before execution").arg(QString::number(delay)));
+    QCommandLineOption qtBinaryPath("qtbin","Use specified directory to locate qt resource compiler binary","qtbin");
     parser.addOption(removeImages);
     parser.addOption(addImages);
     parser.addOption(qrc);
     parser.addOption(rcc);
     parser.addOption(dir);
     parser.addOption(runningDelay);
+    parser.addOption(qtBinaryPath);
 
     parser.addPositionalArgument("source","Project folder containing source images");
     parser.addPositionalArgument("target","Build folder containing resource build files");
@@ -96,6 +98,10 @@ int main(int argc, char *argv[])
 
     foreach(QString subfolder,subfolders){
         PackageGenerator generator(source+"/"+subfolder,target+"/img/"+subfolder);
+        if(parser.isSet(qtBinaryPath)){
+            generator.setQtBinaryPath(parser.value(qtBinaryPath));
+        }
+
         if(!generator.readSetting()){
             return 2;
         }

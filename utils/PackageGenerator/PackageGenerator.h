@@ -17,6 +17,8 @@ public:
     bool addImages();
     bool buildQRC();
     bool buildRCC();
+
+    void setQtBinaryPath(const QString& path);
 private:
     void output(const QString& msg);
 
@@ -34,6 +36,8 @@ private:
 
     QList<QSize> _targetSizes;
     QMap<QString,ImageSetting> _imageSettings;
+
+    QString _qtBinaryPath;
 };
 
 #endif // PACKAGEGENERATOR_H
