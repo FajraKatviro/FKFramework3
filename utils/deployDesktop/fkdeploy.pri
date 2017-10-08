@@ -6,16 +6,33 @@ isEmpty(DEPLOY_BUILD_FOLDER){
         error("DEPLOY_BUILD_FOLDER variable not set, deploy tool would fail")
 }
 isEmpty(LICENSE){
-        error("LICENSE variable not set, deploy for windows would fail")
+        win32:error("LICENSE variable not set, deploy for windows would fail")
+        else:warning("LICENSE variable not set, deploy for windows would fail")
 }
 isEmpty(UPGRADE_CODE){
-        error("UPGRADE_CODE variable not set, deploy for windows would fail")
+        win32:error("UPGRADE_CODE variable not set, deploy for windows would fail")
+        else:warning("UPGRADE_CODE variable not set, deploy for windows would fail")
 }
 isEmpty(SHORT_DESCRIPTION){
-        error("SHORT_DESCRIPTION variable not set, deploy for linux would fail")
+        unix:!android:!mac:error("SHORT_DESCRIPTION variable not set, deploy for linux would fail")
+        else:warning("SHORT_DESCRIPTION variable not set, deploy for linux would fail")
 }
 isEmpty(LONG_DESCRIPTION){
-        error("LONG_DESCRIPTION variable not set, deploy for linux would fail")
+        unix:!android:!mac:error("LONG_DESCRIPTION variable not set, deploy for linux would fail")
+        else:warning("LONG_DESCRIPTION variable not set, deploy for linux would fail")
+}
+isEmpty(LONG_DESCRIPTION){
+        unix:!android:!mac:error("LONG_DESCRIPTION variable not set, deploy for linux would fail")
+        else:warning("LONG_DESCRIPTION variable not set, deploy for linux would fail")
+}
+isEmpty(QMAKE_TARGET_PRODUCT){
+        unix:!android:!mac:error("QMAKE_TARGET_PRODUCT variable not set, deploy for linux would fail")
+}
+isEmpty(QMAKE_TARGET_COMPANY){
+        unix:!android:!mac:error("QMAKE_TARGET_PRODUCT variable not set, deploy for linux would fail")
+}
+isEmpty(VERSION){
+        unix:!android:!mac:error("VERSION variable not set, deploy for linux would fail")
 }
 
 win32{
