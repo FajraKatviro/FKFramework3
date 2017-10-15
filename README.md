@@ -32,9 +32,8 @@ It is not a one more game engine. The main purpose of this project is adding of 
 Building:
 
   1. Clone repository with --recursive option
-  2. Configure root project (FKFramework.pro) with QtCreator
-  3. Add 'make deploy' step after 'make' step
-  4. Build
+  2. Configure root project (fkframework.qbs) with QtCreator
+  3. Build
 
 Framework binaries and source components are placed to default installation folder ($HOME/Applications/FKFramework for mac, $HOME/FKFramework for other unix, %HOMEPATH%\AppData\Roaming\FKFramework for windows)
 
