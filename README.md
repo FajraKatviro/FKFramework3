@@ -65,10 +65,12 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 **Features section**
 
 qbs
-This section provides the set of Submodules for enablind FKFramework3 features.
+
+This section provides the set of Submodules for enabling FKFramework3 features.
 Add submodule as a dependency to enable feature.
 
 qmake
+
 This section provides the set of *.pri* files for enabling FKFramework3 features.
 Add value to FK variable (e.g. FK += imageset) to enable feature.
 Some features are separate build steps. They are included to fkpre(post)process build steps. You can invoke them separately if disable default build steps (see [fkfeatures.pri](features/fkfeatures.pri) for details)
