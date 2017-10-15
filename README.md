@@ -37,8 +37,11 @@ Building:
 
 Framework binaries and source components are placed to default installation folder ($HOME/Applications/FKFramework for mac, $HOME/FKFramework for other unix, %HOMEPATH%\AppData\Roaming\FKFramework for windows)
 
+Integration (qbs):
 
-Integration:
+  1. Add to your project Dependency item with FK module and desired submodules (see features section)
+
+Integration (qmake):
 
   1. Add to you project submodule https://github.com/FajraKatviro/FKDefaultPaths.git
   2. Include 'fkframework.pri' file from submodule to the end of your project file
@@ -50,7 +53,7 @@ Integration:
 
 **Overview:**
 
-**Paths section**
+**Paths section** (qmake only)
 
 This section is a separate git repository. The repository contains *.pri* files with default pre-defined locations for FKFramework3 related files.
 - FK_FRAMEWORK_PATH - FKFramework3 root directory
@@ -61,10 +64,16 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 
 **Features section**
 
+qbs
+This section provides the set of Submodules for enablind FKFramework3 features.
+Add submodule as a dependency to enable feature.
+
+qmake
 This section provides the set of *.pri* files for enabling FKFramework3 features.
 Add value to FK variable (e.g. FK += imageset) to enable feature.
-See content table for avaliable utils.
 Some features are separate build steps. They are included to fkpre(post)process build steps. You can invoke them separately if disable default build steps (see [fkfeatures.pri](features/fkfeatures.pri) for details)
+
+See content table for avaliable features.
 
 **Utils section**
 
