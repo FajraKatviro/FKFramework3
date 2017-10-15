@@ -12,7 +12,7 @@ Module{
     Rule{
         inputs: ["deployable"]
         Artifact{
-            filePath: FileInfo.path(product.deploy.frameworkPath + "/" + FileInfo.path(FileInfo.relativePath(product.sourceDirectory, input.filePath)) + "/" + input.deploy.root  + "/") + "/" + input.fileName
+            filePath: FileInfo.path(product.deploy.frameworkPath + "/" + input.deploy.root + "/" + FileInfo.path(FileInfo.relativePath(product.sourceDirectory, input.filePath)) + "/") + "/" + input.fileName
             fileTags: ["deployedPackage"]
         }
         prepare: {

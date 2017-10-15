@@ -9,8 +9,8 @@ Project{
     name: "FKFramework 3"
 
     references: [
-        "features/features.qbs"//,
-        //"utils/utils.qbs"
+        "features/features.qbs",
+        "utils/utils.qbs"
     ]
 
     qbsSearchPaths: "."
@@ -29,6 +29,7 @@ Project{
     property string frameworkPath: FKPaths.frameworkPath(qbs.hostOS)
 
     Product{
+        name: "Qbs configuration"
         type: ["searchPathsConfiguration"]
         Depends{ name: "Qt.core" }
         readonly property string qbsPath: Qt.core.binPath + "/../../../Tools/QtCreator/bin/qbs"
