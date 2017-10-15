@@ -66,7 +66,7 @@ If you want override used FKFramework3 location, you should set FK_FRAMEWORK_PAT
 
 qbs
 
-This section provides the set of Submodules for enablind FKFramework3 features.
+This section provides the set of Submodules for enabling FKFramework3 features.
 Add submodule as a dependency to enable feature.
 
 qmake
