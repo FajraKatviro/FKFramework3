@@ -1,6 +1,7 @@
 import qbs
 import "../DeployPackage.qbs" as DeployPackage
 
+
 Project{
 
     QtGuiApplication{
@@ -15,7 +16,48 @@ Project{
             "ImageManager/ImageChecker.cpp",
             "ImageManager/ImageChecker.h",
             "ImageManager/qml.qrc",
-            "ImageManager/deployTemplates.qrc",
+            "ImageManager/deployTemplates.qrc"
+        ]
+    }
+
+    QtApplication{
+        name: "PackageManager"
+        consoleApplication: true
+        type: "deployedApp"
+        Depends{ name: "deploy" }
+        cpp.includePaths: "helpers"
+        deploy.root: "utils"
+        files: [
+            "PackageManager/main.cpp",
+            "PackageManager/PackageManager.cpp",
+            "PackageManager/PackageManager.h"
+        ]
+    }
+
+    QtApplication{
+        name: "PackageGenerator"
+        consoleApplication: true
+        type: "deployedApp"
+        Depends{ name: "deploy" }
+        Depends{ name: "Qt"; submodules: ["concurrent", "gui"] }
+        cpp.includePaths: "helpers"
+        deploy.root: "utils"
+        files: [
+            "PackageGenerator/main.cpp",
+            "PackageGenerator/PackageGenerator.cpp",
+            "PackageGenerator/PackageGenerator.h"
+        ]
+    }
+
+    QtApplication{
+        name: "DeployQML"
+        consoleApplication: true
+        type: "deployedApp"
+        Depends{ name: "deploy" }
+        cpp.includePaths: "helpers"
+        deploy.root: "utils"
+        files: [
+            "DeployQML/main.cpp"
         ]
     }
 
