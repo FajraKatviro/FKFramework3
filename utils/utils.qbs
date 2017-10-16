@@ -1,8 +1,23 @@
 import qbs
 import "../DeployPackage.qbs" as DeployPackage
 
-
 Project{
+
+    QtGuiApplication{
+        name: "ImageManager"
+        type: "deployedApp"
+        Depends{ name: "deploy" }
+        Depends{ name: "Qt"; submodules: ["qml", "quick"] }
+        cpp.includePaths: "helpers"
+        deploy.root: "utils"
+        files: [
+            "ImageManager/main.cpp",
+            "ImageManager/ImageChecker.cpp",
+            "ImageManager/ImageChecker.h",
+            "ImageManager/qml.qrc",
+            "ImageManager/deployTemplates.qrc",
+        ]
+    }
 
     DeployPackage{
         name: "deployDesktop"
