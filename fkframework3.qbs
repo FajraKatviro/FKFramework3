@@ -1,10 +1,10 @@
 import qbs
 import qbs.Environment
-import "paths/fkframework.js" as FKPaths
+import "features/qbs/scripts/fkframeworkpath.js" as FKPaths
 
 Project{
 
-    minimumQbsVersion: "1.9.1"
+    minimumQbsVersion: "1.10.0"
 
     name: "FKFramework 3"
 
@@ -13,18 +13,7 @@ Project{
         "utils/utils.qbs"
     ]
 
-    qbsSearchPaths: "."
-
-    Product{
-        name: "Other files"
-        files: [
-            "README.md",
-            "LICENSE",
-            "paths/README.md",
-            "paths/fkframeworkpath.pri",
-            "paths/fkframework.pri"
-        ]
-    }
+    qbsSearchPaths: ["./features/qbs", "./qbs"]
 
     property string frameworkPath: FKPaths.frameworkPath(qbs.hostOS)
 
@@ -46,5 +35,16 @@ Project{
                 return [cmd];
             }
         }
+    }
+
+    Product{
+        name: "Other files"
+        files: [
+            "README.md",
+            "LICENSE",
+            "paths/README.md",
+            "paths/fkframeworkpath.pri",
+            "paths/fkframework.pri"
+        ]
     }
 }

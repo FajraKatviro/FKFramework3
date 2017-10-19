@@ -1,16 +1,13 @@
 import qbs
-import "../DeployPackage.qbs" as DeployPackage
-
+import "../features/qbs/scripts/fkframeworkpath.js" as FKPaths
 
 Project{
 
-    QtGuiApplication{
+    property path utilsFolder: FKPaths.frameworkPath(qbs.hostOS) + "/utils"
+
+    FKTool{
         name: "ImageManager"
-        type: "deployedApp"
-        Depends{ name: "deploy" }
-        Depends{ name: "Qt"; submodules: ["qml", "quick"] }
-        cpp.includePaths: "helpers"
-        deploy.root: "utils"
+        Depends{ name: "Qt"; submodules: ["gui", "qml", "quick"] }
         files: [
             "ImageManager/main.cpp",
             "ImageManager/ImageChecker.cpp",
@@ -20,13 +17,9 @@ Project{
         ]
     }
 
-    QtApplication{
+    FKTool{
         name: "PackageManager"
         consoleApplication: true
-        type: "deployedApp"
-        Depends{ name: "deploy" }
-        cpp.includePaths: "helpers"
-        deploy.root: "utils"
         files: [
             "PackageManager/main.cpp",
             "PackageManager/PackageManager.cpp",
@@ -34,14 +27,10 @@ Project{
         ]
     }
 
-    QtApplication{
+    FKTool{
         name: "PackageGenerator"
         consoleApplication: true
-        type: "deployedApp"
-        Depends{ name: "deploy" }
         Depends{ name: "Qt"; submodules: ["concurrent", "gui"] }
-        cpp.includePaths: "helpers"
-        deploy.root: "utils"
         files: [
             "PackageGenerator/main.cpp",
             "PackageGenerator/PackageGenerator.cpp",
@@ -49,13 +38,9 @@ Project{
         ]
     }
 
-    QtApplication{
+    FKTool{
         name: "DeployQML"
         consoleApplication: true
-        type: "deployedApp"
-        Depends{ name: "deploy" }
-        cpp.includePaths: "helpers"
-        deploy.root: "utils"
         files: [
             "DeployQML/main.cpp"
         ]
@@ -76,7 +61,6 @@ Project{
                 "deployDesktop/DEBIAN/*"
             ]
             fileTags: ["deployable"]
-            deploy.root: "utils"
         }
     }
 
@@ -90,7 +74,6 @@ Project{
                 "deployMobile/ios_splashScreen/*"
             ]
             fileTags: ["deployable"]
-            deploy.root: "utils"
         }
     }
 
@@ -102,7 +85,6 @@ Project{
                 "contentPacker/fkcontent.pri"
             ]
             fileTags: ["deployable"]
-            deploy.root: "utils"
         }
     }
 
@@ -114,7 +96,6 @@ Project{
                 "helpers/*.h"
             ]
             fileTags: ["deployable"]
-            deploy.root: "utils"
         }
     }
 
