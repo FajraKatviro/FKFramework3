@@ -5,20 +5,22 @@ Project{
 
     DeployPackage{
         name: "features for qmake"
+        files: "README.md"
         Group{
             files: "fkfeatures.pri"
             fileTags: ["fk.deployable"]
         }
-        FK.fileDeploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
+        deployFolder: FKPaths.frameworkPath(qbs.hostOS)
     }
 
     DeployPackage{
         name: "features for qbs"
+        files: "README.qbs.md"
         Group{
             files: "qbs/**"
             fileTags: ["fk.deployable"]
         }
-        FK.fileDeploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
+        deployFolder: FKPaths.frameworkPath(qbs.hostOS)
     }
 
 }

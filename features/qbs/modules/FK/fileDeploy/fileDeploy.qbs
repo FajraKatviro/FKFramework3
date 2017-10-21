@@ -6,7 +6,7 @@ import qbs.Process
 
 Module{
 
-    property path destinationRoot
+    readonly property path destinationRoot: product.deployFolder
     property path deploySourceRoot: product.sourceDirectory
 
     Rule{
@@ -23,7 +23,7 @@ Module{
         outputFileTags: ["fk.deployedFile", "fk.deployedApplication"]
         prepare: {
             if(input.FK.fileDeploy.destinationRoot === undefined){
-                throw "FK.fileDeploy.destinationRoot is undefined for " + input.filePath
+                throw "product.deployFolder is undefined for " + input.filePath
             }
             var cmd = new JavaScriptCommand()
             cmd.description = "Copy deployable file " + input.filePath + " to " + output.filePath

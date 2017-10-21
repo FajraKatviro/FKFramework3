@@ -6,8 +6,6 @@ import qbs.Process
 
 Module{
 
-    property path destinationRoot
-
     Depends{ name: "FK.fileDeploy" }
 
     Group{
@@ -15,7 +13,6 @@ Module{
         fileTags: "fk.deployable"
         overrideTags: false
         FK.fileDeploy.deploySourceRoot: undefined
-        FK.fileDeploy.destinationRoot: FK.deploy.destinationRoot
     }
 
     Rule{
