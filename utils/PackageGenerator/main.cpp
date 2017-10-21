@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
     QCommandLineOption dir("dir","Run for nested folders (assume provided location of multiple packages)");
     QCommandLineOption runningDelay("d",QString("Wait %1 ms before execution").arg(QString::number(delay)));
     QCommandLineOption qtBinaryPath("qtbin","Use specified directory to locate qt resource compiler binary","qtbin");
+    QCommandLineOption resources("resources","Create final rcc resources list","filePath");
     parser.addOption(removeImages);
     parser.addOption(addImages);
     parser.addOption(qrc);
@@ -63,6 +64,7 @@ int main(int argc, char *argv[])
     parser.addOption(dir);
     parser.addOption(runningDelay);
     parser.addOption(qtBinaryPath);
+    parser.addOption(resources);
 
     parser.addPositionalArgument("source","Project folder containing source images");
     parser.addPositionalArgument("target","Build folder containing resource build files");
@@ -96,6 +98,7 @@ int main(int argc, char *argv[])
         subfolders<<".";
     }
 
+    QStringList resourceList;
     foreach(QString subfolder,subfolders){
         PackageGenerator generator(source+"/"+subfolder,target+"/img/"+subfolder);
         if(parser.isSet(qtBinaryPath)){
@@ -104,6 +107,10 @@ int main(int argc, char *argv[])
 
         if(!generator.readSetting()){
             return 2;
+        }
+
+        if(parser.isSet(resources)){
+            resourceList.append(generator.resourceList());
         }
 
         if(parser.isSet(addImages)){
@@ -140,8 +147,13 @@ int main(int argc, char *argv[])
             }
         }
         if(!copyRecursive(QDir(target+"/bin/"),QDir(deployFolder))){
-
             return 8;
+        }
+    }
+
+    if(parser.isSet(resources)){
+        if(!PackageGenerator.writeResourceList(parser.value(resources),resourceList)){
+            return 9;
         }
     }
 

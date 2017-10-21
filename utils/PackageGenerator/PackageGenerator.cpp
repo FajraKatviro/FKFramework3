@@ -11,6 +11,8 @@
 
 #include <QImage>
 
+#include <QStringList>
+
 #include <QProcessEnvironment>
 
 #include "sizeString.h"
@@ -139,6 +141,28 @@ bool PackageGenerator::buildRCC(){
         if(!(*r))return false;
     }
     output("Success");
+    return true;
+}
+
+QStringList PackageGenerator::resourceList() const{
+    QStringList result;
+    for(qint32 s=0;s<_targetSizes.size();++s){
+        QString targetPath=QString("%1/../../bin/%2").arg(_buildFolder.path()).arg(_sourceFolder.dirName());
+        QString target=QString("%1/%3.rcc").arg(targetPath).arg(FKUtility::sizeToString(_targetSizes.at(s)));
+        result.append(target);
+    }
+    return result;
+}
+
+bool PackageGenerator::writeResourceList(const QString path, const QStringList list){
+    QFile target(path);
+    if(!target.open(QIODevice::WriteOnly | QIODevice::Truncate)){
+        return false;
+    }
+    QTextStream stream(&target);
+    for(auto resource: list){
+        stream << resource << endl;
+    }
     return true;
 }
 

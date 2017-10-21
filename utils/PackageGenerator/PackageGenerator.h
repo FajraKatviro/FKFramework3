@@ -7,6 +7,7 @@
 #include <QSize>
 
 class QString;
+class QStringList;
 
 class PackageGenerator{
 public:
@@ -17,6 +18,9 @@ public:
     bool addImages();
     bool buildQRC();
     bool buildRCC();
+    QStringList resourceList() const;
+
+    static bool writeResourceList(const QString path, const QStringList list);
 
     void setQtBinaryPath(const QString& path);
 private:

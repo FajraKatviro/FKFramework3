@@ -23,7 +23,8 @@ Project{
         files: [
             "PackageManager/main.cpp",
             "PackageManager/PackageManager.cpp",
-            "PackageManager/PackageManager.h"
+            "PackageManager/PackageManager.h",
+            "PackageManager/README.md"
         ]
     }
 
