@@ -7,18 +7,18 @@ Project{
         name: "features for qmake"
         Group{
             files: "fkfeatures.pri"
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
-        FK.deploy.root: FKPaths.frameworkPath(qbs.hostOS)
+        FK.deploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
     }
 
     DeployPackage{
         name: "features for qbs"
         Group{
             files: "qbs/**"
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
-        FK.deploy.root: FKPaths.frameworkPath(qbs.hostOS)
+        FK.deploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
     }
 
 }

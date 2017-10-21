@@ -4,7 +4,7 @@ import "features/qbs/scripts/fkframeworkpath.js" as FKPaths
 
 Project{
 
-    minimumQbsVersion: "1.10.0"
+    //minimumQbsVersion: "1.10.0"
 
     name: "FKFramework 3"
 

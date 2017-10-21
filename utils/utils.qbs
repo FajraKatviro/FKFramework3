@@ -38,6 +38,7 @@ Project{
         ]
     }
 
+
     FKTool{
         name: "DeployQML"
         consoleApplication: true
@@ -60,7 +61,7 @@ Project{
                 "deployDesktop/winDeploy.bat",
                 "deployDesktop/DEBIAN/*"
             ]
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
     }
 
@@ -73,7 +74,7 @@ Project{
                 "deployMobile/android_splashScreen/**",
                 "deployMobile/ios_splashScreen/*"
             ]
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
     }
 
@@ -84,7 +85,7 @@ Project{
                 "contentPacker/fkimageset.pri",
                 "contentPacker/fkcontent.pri"
             ]
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
     }
 
@@ -95,7 +96,7 @@ Project{
                 "helpers/fkhelpers.pri",
                 "helpers/*.h"
             ]
-            fileTags: ["deployable"]
+            fileTags: ["fk.deployable"]
         }
     }
 
