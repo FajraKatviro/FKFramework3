@@ -9,7 +9,7 @@ Project{
             files: "fkfeatures.pri"
             fileTags: ["fk.deployable"]
         }
-        FK.deploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
+        FK.fileDeploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
     }
 
     DeployPackage{
@@ -18,7 +18,7 @@ Project{
             files: "qbs/**"
             fileTags: ["fk.deployable"]
         }
-        FK.deploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
+        FK.fileDeploy.destinationRoot: FKPaths.frameworkPath(qbs.hostOS)
     }
 
 }

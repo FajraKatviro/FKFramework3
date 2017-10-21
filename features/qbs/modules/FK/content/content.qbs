@@ -10,7 +10,7 @@ Module{
     Depends{ name: "Qt.core" }
     readonly property path rccPath: Qt.core.binPath + "/rcc"
 
-    Depends{ name: "FK.deploy" }
+    Depends{ name: "FK.fileDeploy" }
 
     Rule{
         inputs: ["fk.resource"]

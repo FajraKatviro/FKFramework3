@@ -7,44 +7,15 @@ import qbs.Process
 Module{
 
     property path destinationRoot
-    property path deploySourceRoot: product.sourceDirectory
 
-    validate: {
-        if (destinationRoot === undefined){
-            throw "FK.deploy.destinationRoot is undefined"
-        }
-    }
+    Depends{ name: "FK.fileDeploy" }
 
     Group{
         fileTagsFilter: "application"
         fileTags: "fk.deployable"
         overrideTags: false
-        FK.deploy.deploySourceRoot: undefined
-    }
-
-    Rule{
-        inputs: ["fk.deployable", "fk.content"]
-        outputArtifacts: {
-            var location = input.fileTags.contains("fk.content") ? input.FK.content.location : "/."
-            var sourceRoot =  input.fileTags.contains("fk.content") ? input.FK.content.sourceRoot  : input.FK.deploy.deploySourceRoot
-            var targetPath = "/" + (sourceRoot === undefined ? input.fileName : FileInfo.relativePath(sourceRoot, input.filePath))
-            return [{
-                filePath: input.FK.deploy.destinationRoot + location + targetPath,
-                fileTags: input.fileTags.contains("application") ? ["fk.deployedFile", "fk.deployedApplication"] : ["fk.deployedFile"]
-            }]
-        }
-        outputFileTags: ["fk.deployedFile", "fk.deployedApplication"]
-        prepare: {
-            var cmd = new JavaScriptCommand()
-            cmd.description = "Copy deployable file " + input.filePath + " to " + output.filePath
-            cmd.sourceCode = function() {
-                if(File.exists(output.filePath))
-                    File.remove(output.filePath)
-                File.copy(input.filePath, output.filePath)
-            }
-            return [cmd]
-        }
-        alwaysRun: true
+        FK.fileDeploy.deploySourceRoot: undefined
+        FK.fileDeploy.destinationRoot: FK.deploy.destinationRoot
     }
 
     Rule{

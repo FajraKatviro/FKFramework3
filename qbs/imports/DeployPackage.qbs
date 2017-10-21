@@ -1,7 +1,7 @@
 import qbs
 
 Product{
-    Depends{ name: "FK.deploy" }
+    Depends{ name: "FK.fileDeploy" }
     type: "fk.deployedFile"
-    FK.deploy.destinationRoot: utilsFolder
+    FK.fileDeploy.destinationRoot: utilsFolder
 }
