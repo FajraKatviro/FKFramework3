@@ -9,6 +9,8 @@ Module{
     readonly property path destinationRoot: product.deployFolder
     property path deploySourceRoot: product.sourceDirectory
 
+    additionalProductTypes: "fk.deployedFile"
+
     Rule{
         inputs: ["fk.deployable", "fk.content"]
         outputArtifacts: {
