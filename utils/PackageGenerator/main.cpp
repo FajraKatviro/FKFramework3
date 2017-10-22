@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
     }
 
     if(parser.isSet(resources)){
-        if(!PackageGenerator.writeResourceList(parser.value(resources),resourceList)){
+        if(!PackageGenerator::writeResourceList(parser.value(resources),resourceList)){
             return 9;
         }
     }

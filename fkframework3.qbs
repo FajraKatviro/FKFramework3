@@ -4,7 +4,7 @@ import "features/qbs/scripts/fkframeworkpath.js" as FKPaths
 
 Project{
 
-    //minimumQbsVersion: "1.10.0"
+    minimumQbsVersion: "1.10.0"
 
     name: "FKFramework 3"
 
@@ -21,7 +21,9 @@ Project{
         name: "Qbs configuration"
         type: ["searchPathsConfiguration"]
         Depends{ name: "Qt.core" }
-        readonly property string qbsPath: Qt.core.binPath + "/../../../Tools/QtCreator/bin/qbs"
+
+        readonly property string qbsPath: Qt.core.binPath + "/../../../" + (qbs.hostOS.contains("macos") ? "Qt Creator.app/Contents/MacOS/qbs" : "Tools/QtCreator/bin/qbs")
+
         Rule{
             multiplex: true
             alwaysRun: true
