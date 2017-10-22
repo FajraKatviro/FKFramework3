@@ -72,6 +72,7 @@ Invokes qt rcc compiler with no compression option and place resources to 'bundl
 
 **modules**
 
+Not implemented yet.
 
 **helpers**
 
