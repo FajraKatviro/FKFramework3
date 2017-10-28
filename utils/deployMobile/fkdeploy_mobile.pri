@@ -8,6 +8,11 @@ isEmpty(FK_MOBILE_ICONS){
     warning("FK_MOBILE_ICONS path is not set")
 }
 
+isEmpty(ANDROID_PACKAGE_SOURCE_DIR){
+    android:error("ANDROID_PACKAGE_SOURCE_DIR is not set")
+    else:warning("ANDROID_PACKAGE_SOURCE_DIR is not set")
+}
+
 isEmpty(FK_MOBILE_SPLASH_SCREENS){
     ios{
         FK_MOBILE_SPLASH_SCREENS = $$PWD/ios_splashScreen
@@ -36,11 +41,15 @@ ios{
 android{
     android_icon.files = $$FK_MOBILE_ICONS/mipmap*
     android_icon.path = /res
-    android_icon.extra += $(COPY_DIR) $$system_path($$FK_MOBILE_ICONS) $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+    equals(QMAKE_HOST.os, Linux):android_icon.extra += $(COPY_DIR) $$system_path($$FK_MOBILE_ICONS)/* $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+    else:android_icon.extra += $(COPY_DIR) $$system_path($$FK_MOBILE_ICONS) $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+
     INSTALLS += android_icon
 
     app_launch_images.files = $$FK_MOBILE_SPLASH_SCREENS/drawable*
     app_launch_images.path = /res
-    app_launch_images.extra = $(COPY_DIR) $$system_path($$FK_MOBILE_SPLASH_SCREENS) $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+    equals(QMAKE_HOST.os, Linux):app_launch_images.extra = $(COPY_DIR) $$system_path($$FK_MOBILE_SPLASH_SCREENS)/* $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+    else:app_launch_images.extra = $(COPY_DIR) $$system_path($$FK_MOBILE_SPLASH_SCREENS) $$system_path($$ANDROID_PACKAGE_SOURCE_DIR/res)
+
     INSTALLS += app_launch_images
 }
